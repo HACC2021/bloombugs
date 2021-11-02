@@ -1,6 +1,8 @@
+
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
+import PropTypes from 'prop-types';
 
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
@@ -14,12 +16,16 @@ class StuffsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
-      quantity: Number,
+      phone: String,
       owner: String,
-      condition: {
+      location: String,
+      description: String,
+      markers: String,
+      behavior: String,
+      numPeople: {
         type: String,
-        allowedValues: ['excellent', 'good', 'fair', 'poor'],
-        defaultValue: 'good',
+        allowedValues: ['0 - 25', '26 - 50', '51 - 100', '100 +'],
+        defaultValue: '0 - 25',
       },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
