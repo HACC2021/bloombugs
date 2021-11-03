@@ -16,6 +16,9 @@ import Signout from '../pages/Signout';
 import Distress from '../pages/Distress';
 import Sighting from '../pages/Sighting';
 import SealSighting from '../pages/SealSighting';
+import TurtleSighting from '../pages/TurtleSighting';
+import Other from '../pages/Other';
+import BirdSighting from '../pages/BirdSighting';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,6 +32,9 @@ class App extends React.Component {
             <Route path="/distress" component={Distress}/>
             <Route path="/sighting" component={Sighting}/>
             <Route path="/sealsighting" component={SealSighting}/>
+            <Route path="/turtlesighting" component={TurtleSighting}/>
+            <Route path="/birdsighting" component={BirdSighting}/>
+            <Route path="/other" component={Other}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
             <ProtectedRoute path="/list" component={ListStuff}/>

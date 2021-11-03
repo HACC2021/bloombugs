@@ -7,9 +7,8 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
-const bleach = 'https://kauaiseals.files.wordpress.com/2017/05/v76thomton.jpg?w=584';
-const tags = 'http://www.smru.st-andrews.ac.uk/files/2021/05/flipper_tag_eg.png';
-
+const satellite = 'https://conserveturtles.org/wp-content/uploads/2021/02/GreenReleasedSatelliteTrans-400x267.png';
+const tags = 'https://www.nationalband.com/wp-content/uploads/2017/05/sea-turtle-tag-1.png';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -29,7 +28,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class SealSighting extends React.Component {
+class TurtleSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -52,21 +51,25 @@ class SealSighting extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Seal Sighting Form</Header>
+          <Header as="h2" textAlign="center">Turtle Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
+              <Header textAlign='center'> Contact Info</Header>
               <TextField name='name'/>
               <TextField name='phone' decimal={false}/>
+              <Header textAlign='center'> Sighting Info</Header>
               <TextField name='location'/>
-              <TextField name='description'/>
+              <TextField name='description' placeholder='ex. beach name, building near by, statues near by'/>
               <Grid.Row>
-                <Image src={bleach} size="middle" centered/>
+                <Image src={satellite} size="middle" centered/>
+                <Header textAlign='center'>Satellite</Header>
               </Grid.Row>
               <Grid.Row>
                 <Image src={tags} size="middle" centered/>
+                <Header textAlign='center'>Tag</Header>
               </Grid.Row>
-              <TextField name='markers'/>
-              <TextField name='behavior'/>
+              <TextField name='markers' placeholder='ex. tags, satellite'/>
+              <TextField name='behavior' placeholder='ex. sleeping, eating'/>
               <SelectField name='numPeople'/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
@@ -78,4 +81,4 @@ class SealSighting extends React.Component {
   }
 }
 
-export default SealSighting;
+export default TurtleSighting;

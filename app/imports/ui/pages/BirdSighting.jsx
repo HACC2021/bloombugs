@@ -7,10 +7,6 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
-const bleach = 'https://kauaiseals.files.wordpress.com/2017/05/v76thomton.jpg?w=584';
-const tags = 'http://www.smru.st-andrews.ac.uk/files/2021/05/flipper_tag_eg.png';
-
-
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
@@ -29,7 +25,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /** Renders the Page for adding a document. */
-class SealSighting extends React.Component {
+class BirdSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
@@ -52,19 +48,13 @@ class SealSighting extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Seal Sighting Form</Header>
+          <Header as="h2" textAlign="center">Bird Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <TextField name='name'/>
               <TextField name='phone' decimal={false}/>
               <TextField name='location'/>
               <TextField name='description'/>
-              <Grid.Row>
-                <Image src={bleach} size="middle" centered/>
-              </Grid.Row>
-              <Grid.Row>
-                <Image src={tags} size="middle" centered/>
-              </Grid.Row>
               <TextField name='markers'/>
               <TextField name='behavior'/>
               <SelectField name='numPeople'/>
@@ -78,4 +68,4 @@ class SealSighting extends React.Component {
   }
 }
 
-export default SealSighting;
+export default BirdSighting;

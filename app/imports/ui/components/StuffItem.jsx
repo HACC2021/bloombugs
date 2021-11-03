@@ -34,7 +34,7 @@ StuffItem.propTypes = {
     behavior: PropTypes.string,
     numPeople: PropTypes.string,
     _id: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 // Wrap this component in withRouter since we use the <Link> React Router element.

@@ -8,11 +8,11 @@ export default class Sighting extends React.Component {
       <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
         <Grid.Column width={14}>
           <Button secondary inverted><Link to="/sealsighting">Seal</Link></Button>
-          <Button secondary inverted>Turtle</Button>
+          <Button secondary inverted><Link to="/turtlesighting">Turtle</Link></Button>
         </Grid.Column>
         <Grid.Row>
-          <Button secondary inverted>Bird</Button>
-          <Button secondary inverted>Other</Button>
+          <Button secondary inverted><Link to="/birdsighting">Bird</Link></Button>
+          <Button secondary inverted><Link to="/other">Other</Link></Button>
         </Grid.Row>
       </Grid>
     );
