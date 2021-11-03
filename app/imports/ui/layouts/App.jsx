@@ -5,6 +5,7 @@ import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Landing from '../pages/Landing';
+import NavBar from '../components/NavBar';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
@@ -14,6 +15,12 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Distress from '../pages/Distress';
+import Sighting from '../pages/Sighting';
+import SealSighting from '../pages/SealSighting';
+import TurtleSighting from '../pages/TurtleSighting';
+import Other from '../pages/Other';
+import BirdSighting from '../pages/BirdSighting';
+import InfoDistress from '../pages/InfoDistress';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -21,12 +28,20 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+          <NavBar/>
           <Switch>
             <Route exact path="/" component={Landing}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/distress" component={Distress}/>
+            <Route path="/sighting" component={Sighting}/>
+            <Route path="/sealsighting" component={SealSighting}/>
+            <Route path="/turtlesighting" component={TurtleSighting}/>
+            <Route path="/birdsighting" component={BirdSighting}/>
+            <Route path="/other" component={Other}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>
+            <Route path="/navbar" component={NavBar}/>
+            <Route path="/infodistress" component={InfoDistress}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>

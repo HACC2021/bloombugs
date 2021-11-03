@@ -23,9 +23,12 @@ class ListStuff extends React.Component {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Quantity</Table.HeaderCell>
-              <Table.HeaderCell>Condition</Table.HeaderCell>
-              <Table.HeaderCell>Edit</Table.HeaderCell>
+              <Table.HeaderCell>Phone</Table.HeaderCell>
+              <Table.HeaderCell>Location</Table.HeaderCell>
+              <Table.HeaderCell>Location Description</Table.HeaderCell>
+              <Table.HeaderCell>Identifying Markers</Table.HeaderCell>
+              <Table.HeaderCell>Animal Behavior</Table.HeaderCell>
+              <Table.HeaderCell>Number of People</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>
