@@ -7,9 +7,20 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
+const bfal = 'images/BlackFootAlbatross.jpg';
 // Create a schema to specify the structure of the data to appear in the form.
+
 const formSchema = new SimpleSchema({
-  name: String,
+  name: {
+    type: String,
+    allowedValues: ['Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
+      'Brown Booby/Masked Booby BRBO', 'Red Footed Booby/Booby unknown type RFBO', 'Great Frigate GRFR', 'Blue Noddy BGNO',
+      'Black Noddy BLNO', 'Brown Noddy/Noddy unknown type BRNO', 'Bonin Petrel BOPE', "Bluwer's Petrel BUPE",
+      "Tristram's Storm Petrel/Petrel unknown type TRSP", 'Wedge tail Shearwater WTSH', 'Newell Shearwater NESH',
+      'Christmas Shearwater/Shearwater unknown type CHSH', 'Gray-Black Tern GRAT', 'Sooty Tern SOTE',
+      'White Tern/Tern unknown type WHTE', 'Red Tail Tropicbird RTTR', 'White Tail Tropicbird/Tropicbird unknown type WTTR'],
+    defaultValue: 'Blackfoot Albatross BFAL',
+  },
   phone: String,
   location: String,
   description: String,
@@ -24,6 +35,12 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
+/* class MyTextField extends TextField {
+  constructor(props) {
+    super(props);
+    this.birdName = React.createRef();
+  }
+} */
 /** Renders the Page for adding a document. */
 class BirdSighting extends React.Component {
 
@@ -51,7 +68,13 @@ class BirdSighting extends React.Component {
           <Header as="h2" textAlign="center">Bird Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
-              <TextField name='name'/>
+              <Grid.Row>
+                <Header textAlign='center'>Albatross</Header>
+                <Image src={bfal} size="small" centered alt='albatross'/>
+              </Grid.Row>
+            </Segment>
+            <Segment>
+              <SelectField name='name'/>
               <TextField name='phone' decimal={false}/>
               <TextField name='location'/>
               <TextField name='description'/>
@@ -67,5 +90,4 @@ class BirdSighting extends React.Component {
     );
   }
 }
-
 export default BirdSighting;

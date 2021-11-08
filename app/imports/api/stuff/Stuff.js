@@ -1,7 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
-import PropTypes from 'prop-types';
 
 /**
  * The StuffsCollection. It encapsulates state and variable values for stuff.
