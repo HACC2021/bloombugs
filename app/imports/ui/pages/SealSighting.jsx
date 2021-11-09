@@ -10,7 +10,6 @@ import { Stuffs } from '../../api/stuff/Stuff';
 const bleach = 'https://kauaiseals.files.wordpress.com/2017/05/v76thomton.jpg?w=584';
 const tags = 'http://www.smru.st-andrews.ac.uk/files/2021/05/flipper_tag_eg.png';
 
-
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: String,
@@ -40,7 +39,7 @@ class SealSighting extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Record added successfully', 'success');
           formRef.reset();
         }
       });
@@ -60,10 +59,10 @@ class SealSighting extends React.Component {
               <TextField name='location'/>
               <TextField name='description'/>
               <Grid.Row>
-                <Image src={bleach} size="middle" centered/>
+                <Image src={bleach} size="medium" centered/>
               </Grid.Row>
               <Grid.Row>
-                <Image src={tags} size="middle" centered/>
+                <Image src={tags} size="medium" centered/>
               </Grid.Row>
               <TextField name='markers'/>
               <TextField name='behavior'/>

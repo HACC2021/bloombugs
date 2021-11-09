@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Stuffs } from '../../api/stuff/Stuff';
-import StuffItemAdmin from '../components/StuffItemAdmin';
+import { AnimalTable } from './AnimalTable';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuffAdmin extends React.Component {
@@ -18,18 +18,8 @@ class ListStuffAdmin extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Stuff (Admin)</Header>
-        <Table celled>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Name</Table.HeaderCell>
-              <Table.HeaderCell>Phone</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-          <Table.Body>
-            {this.props.stuffs.map((stuff) => <StuffItemAdmin key={stuff._id} stuff={stuff} />)}
-          </Table.Body>
-        </Table>
+        <Header as="h2" textAlign="center">All Marine Animal Reports (Admin)</Header>
+        <AnimalTable stuffs={this.props.stuffs}/>
       </Container>
     );
   }
@@ -44,9 +34,10 @@ ListStuffAdmin.propTypes = {
 // withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Stuffs.adminPublicationName);
+  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  const subscription2 = Meteor.subscribe(Stuffs.adminPublicationName);
   // Determine if the subscription is ready
-  const ready = subscription.ready();
+  const ready = subscription.ready() && subscription2.ready();
   // Get the Stuff documents
   const stuffs = Stuffs.collection.find({}).fetch();
   return {

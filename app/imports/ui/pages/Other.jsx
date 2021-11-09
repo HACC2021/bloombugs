@@ -1,16 +1,21 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Image } from 'semantic-ui-react';
+import 'react-datepicker/dist/react-datepicker.css';
 
+const hwc = '/images/HWC-Logo.jpg';
+const dlnr = '/images/DLNR.png';
 class Other extends React.Component {
   render() {
     return (
       <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
         <Grid.Column width={14}>
-          <Header as="h1"> Unfortunately HMAR only Responds to seals, turtles and birds.</Header>
-          <Header as="h1"> Below are numbers to other orginzations that respond to wildlife </Header>
-          <Header as="h1"> Hawaii Wildlife Center: (808) 884-5000</Header>
-          <Header as="h1"> State of Hawaii: The Division of Conservation and Resources Enforcement: (808) 692-8015</Header>
-          <Header as="h1"> Hawaii PD: Non-emergancies: (808) 935-3311</Header>
+          <Header as="h3">Unfortunately HMAR only responds to seals, turtles and birds.</Header>
+          <Header as="h3">Below are numbers of other organzations that respond to other wildlife </Header>
+          <Image src={hwc} size="tiny" centered alt='Hawaii Wildlife Center logo'/>
+          <Header as="h3">Hawaii Wildlife Center:<br/>Bird and Bat Help Line<br/>(808) 884-5000</Header>
+          <Image src={dlnr} size="tiny" centered alt='State of Hawaii Department of Land and Natural Resources logo'/>
+          <Header as="h3"> State of Hawaii:<br/>Department of Land and Natural Resources<br/>Marine Animal Response Hotline<br/>1-888-256-9840</Header>
+          <Header as="h3"> Honolulu Police Department&apos;s<br/>Non-emergency line: (808) 529-3111</Header>
         </Grid.Column>
       </Grid>
     );

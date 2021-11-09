@@ -18,7 +18,7 @@ class ListStuff extends React.Component {
   renderPage() {
     return (
       <Container>
-        <Header as="h2" textAlign="center">List Stuff</Header>
+        <Header as="h2" textAlign="center">My Reports</Header>
         <AnimalTable stuffs={this.props.stuffs}/>
       </Container>
     );

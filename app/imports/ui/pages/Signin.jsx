@@ -70,7 +70,7 @@ export default class Signin extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
-                <Form.Button id="signin-form-submit" content="Submit"/>
+                <Form.Button id="signin-form-submit" content="Login" color='teal'/>
               </Segment>
             </Form>
             <Message>

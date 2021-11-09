@@ -14,11 +14,11 @@ class InfoDistress extends React.Component {
         </Grid>
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
-            <Button secondary inverted><Link to="/sealsighting">Seal</Link></Button>
-            <Button secondary inverted><Link to="/turtlesighting">Turtle</Link></Button>
+            <Button secondary inverted><Link to="/sealdistress">Seal</Link></Button>
+            <Button secondary inverted><Link to="/turtledistress">Turtle</Link></Button>
           </Grid.Column>
           <Grid.Row>
-            <Button secondary inverted><Link to="/birdsighting">Bird</Link></Button>
+            <Button secondary inverted><Link to="/birddistress">Bird</Link></Button>
             <Button secondary inverted><Link to="/other">Other</Link></Button>
           </Grid.Row>
         </Grid>

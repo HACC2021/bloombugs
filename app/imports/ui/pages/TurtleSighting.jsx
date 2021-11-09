@@ -43,7 +43,7 @@ class TurtleSighting extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Record added successfully', 'success');
           formRef.reset();
         }
       });

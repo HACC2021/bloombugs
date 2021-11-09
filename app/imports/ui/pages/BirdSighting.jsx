@@ -7,7 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
 
-const bfal = 'images/BlackFootAlbatross.jpg';
+const bfal = '/images/BlackFootAlbatross.jpg';
 // Create a schema to specify the structure of the data to appear in the form.
 
 const formSchema = new SimpleSchema({
@@ -53,7 +53,7 @@ class BirdSighting extends React.Component {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Record added successfully', 'success');
           formRef.reset();
         }
       });
