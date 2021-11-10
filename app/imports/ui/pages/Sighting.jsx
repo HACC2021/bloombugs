@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class Sighting extends React.Component {
   render() {
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <Grid verticalAlign='middle' textAlign='center' container>
         <Grid.Column width={14}>
           <Header as="h3">Marine Animal Report</Header>
           <p>What type of animal are you reporting?</p>

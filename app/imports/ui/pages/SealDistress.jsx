@@ -7,7 +7,7 @@ const mnk = '/images/monkSeals.jpg';
 class SealDistress extends React.Component {
   render() {
     return (
-      <Container id='landing-page'>
+      <Container>
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
             <Image src={mnk} size="medium" centered alt='Hawaiian monk seal and pup'/>

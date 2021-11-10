@@ -7,7 +7,7 @@ const wtsh = '/images/shearwater.jpg';
 class BirdDistress extends React.Component {
   render() {
     return (
-      <Container id='landing-page'>
+      <Container>
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
             <Image src={wtsh} size="medium" centered alt='wedge-tailed shearwater'/>

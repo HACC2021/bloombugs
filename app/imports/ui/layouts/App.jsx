@@ -6,8 +6,9 @@ import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Landing from '../pages/Landing';
 import NavBar from '../components/NavBar';
-import ListStuff from '../pages/ListStuff';
-import EditStuff from '../pages/EditStuff';
+import ListReport from '../pages/ListReport';
+import ListReportAdmin from '../pages/ListReportAdmin';
+import EditReport from '../pages/EditReport';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -50,8 +51,9 @@ class App extends React.Component {
             <Route path="/sealdistress" component={SealDistress}/>
             <Route path="/taskform" component={TaskForm}/>
             <Route path="/testpage" component={TestPage}/>
-            <ProtectedRoute path="/list" component={ListStuff}/>
-            <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+            <ProtectedRoute path="/list" component={ListReport}/>
+            <ProtectedRoute path="/adminlist" component={ListReportAdmin}/>
+            <ProtectedRoute path="/edit/:_id" component={EditReport}/>
             <Route component={NotFound}/>
           </Switch>
         </div>

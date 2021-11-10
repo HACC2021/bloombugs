@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button, Grid, Image, Container } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import NavBar from'../components/NavBar';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
     return (
-      <Container fluid verticleAlign='middle'>
+      <Container fluid verticalAlign='middle'>
         <Grid id='landing-page' verticalAlign='middle' className='center aligned'>
           <Grid.Column width={14}>
             <h3 className="intro">Welcome to Kahukai: the HMAR Reporting app</h3>

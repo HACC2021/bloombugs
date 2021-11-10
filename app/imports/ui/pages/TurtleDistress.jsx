@@ -7,7 +7,7 @@ const Cm = '/images/greenSeaTurtle.jpg';
 class TurtleDistress extends React.Component {
   render() {
     return (
-      <Container id='landing-page'>
+      <Container>
         <Grid verticalAlign='middle' textAlign='center' container>
           <Grid.Column width={14}>
             <Image src={Cm} size="medium" centered alt='green sea turtle'/>

@@ -5,13 +5,14 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Report } from '../../api/report/Report';
 
 const satellite = 'https://conserveturtles.org/wp-content/uploads/2021/02/GreenReleasedSatelliteTrans-400x267.png';
 const tags = 'https://www.nationalband.com/wp-content/uploads/2017/05/sea-turtle-tag-1.png';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
+  date: String,
   name: {
     type: String,
     allowedValues: ['Green turtle (Chelonia mydas) Cm', 'Hawksbill turtle (Eretmochelys imbricata) Ei'],
@@ -36,9 +37,9 @@ class TurtleSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, phone, location, description, markers, behavior, numPeople } = data;
+    const { date, name, phone, location, description, markers, behavior, numPeople } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, phone, owner, location, description, markers, behavior, numPeople },
+    Report.collection.insert({ date, name, phone, owner, location, description, markers, behavior, numPeople },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -59,6 +60,7 @@ class TurtleSighting extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <Header textAlign='center'> Contact Info</Header>
+              <TextField name='date' type='date'/>
               <SelectField name='name'/>
               <TextField name='phone' decimal={false}/>
               <Header textAlign='center'> Sighting Info</Header>

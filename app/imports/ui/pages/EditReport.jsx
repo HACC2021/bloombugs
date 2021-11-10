@@ -6,17 +6,17 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Report } from '../../api/report/Report';
 
-const bridge = new SimpleSchema2Bridge(Stuffs.schema);
+const bridge = new SimpleSchema2Bridge(Report.schema);
 
 /** Renders the Page for editing a single document. */
-class EditStuff extends React.Component {
+class EditReport extends React.Component {
 
   // On successful submit, insert the data.
   submit(data) {
-    const { name, phone, location, description, markers, behavior, numPeople, Submit, _id } = data;
-    Stuffs.collection.update(_id, { $set: { name, phone, location, description, markers, behavior, numPeople, Submit } }, (error) => (error ?
+    const { date, name, phone, location, description, markers, behavior, numPeople, Submit, _id } = data;
+    Report.collection.update(_id, { $set: { date, name, phone, location, description, markers, behavior, numPeople, Submit } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -31,9 +31,10 @@ class EditStuff extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
-          <Header as="h2" textAlign="center">Edit Stuff</Header>
+          <Header as="h2" textAlign="center">Edit Report</Header>
           <AutoForm schema={bridge} onSubmit={data => this.submit(data)} model={this.props.doc}>
             <Segment>
+              <TextField name='date' type='date'/>
               <SelectField name='name'/>
               <TextField name='phone'/>
               <TextField name='location'/>
@@ -51,8 +52,8 @@ class EditStuff extends React.Component {
   }
 }
 
-// Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use.
-EditStuff.propTypes = {
+// Require the presence of a Report in the props object. Uniforms adds 'model' to the props, which we use.
+EditReport.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
@@ -62,14 +63,14 @@ EditStuff.propTypes = {
 export default withTracker(({ match }) => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const documentId = match.params._id;
-  // Get access to Stuff documents.
-  const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+  // Get access to Report documents.
+  const subscription = Meteor.subscribe(Report.userPublicationName);
   // Determine if the subscription is ready
   const ready = subscription.ready();
   // Get the document
-  const doc = Stuffs.collection.findOne(documentId);
+  const doc = Report.collection.findOne(documentId);
   return {
     doc,
     ready,
   };
-})(EditStuff);
+})(EditReport);

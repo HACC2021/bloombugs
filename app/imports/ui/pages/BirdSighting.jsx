@@ -5,12 +5,13 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Report } from '../../api/report/Report';
 
 const bfal = '/images/BlackFootAlbatross.jpg';
 // Create a schema to specify the structure of the data to appear in the form.
 
 const formSchema = new SimpleSchema({
+  date: String,
   name: {
     type: String,
     allowedValues: ['Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
@@ -46,9 +47,9 @@ class BirdSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { name, phone, location, description, markers, behavior, numPeople } = data;
+    const { date, name, phone, location, description, markers, behavior, numPeople } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert({ name, phone, owner, location, description, markers, behavior, numPeople },
+    Report.collection.insert({ date, name, phone, owner, location, description, markers, behavior, numPeople },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -74,6 +75,7 @@ class BirdSighting extends React.Component {
               </Grid.Row>
             </Segment>
             <Segment>
+              <TextField name='date' type='date'/>
               <SelectField name='name'/>
               <TextField name='phone' decimal={false}/>
               <TextField name='location'/>
