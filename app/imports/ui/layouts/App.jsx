@@ -22,6 +22,9 @@ import InfoDistress from '../pages/InfoDistress';
 import BirdDistress from '../pages/BirdDistress';
 import TurtleDistress from '../pages/TurtleDistress';
 import SealDistress from '../pages/SealDistress';
+import TaskForm from '../pages/TaskForm';
+import TestPage from '../pages/testPage';
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -45,6 +48,8 @@ class App extends React.Component {
             <Route path="/birddistress" component={BirdDistress}/>
             <Route path="/turtledistress" component={TurtleDistress}/>
             <Route path="/sealdistress" component={SealDistress}/>
+            <Route path="/taskform" component={TaskForm}/>
+            <Route path="/testpage" component={TestPage}/>
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
             <Route component={NotFound}/>
