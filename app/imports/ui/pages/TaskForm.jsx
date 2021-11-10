@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Image } from 'semantic-ui-react';
-import { AutoForm, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, SubmitField, TextField, ErrorsField } from 'uniforms-semantic';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
@@ -16,7 +16,7 @@ const bridge = new SimpleSchema2Bridge(taskSchema);
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { textval: '' };
+    this.state = { text: '' };
     this.clickt1 = this.clickt1.bind(this);
     this.schema = new SimpleSchema({
       text: String,
@@ -26,10 +26,11 @@ class TaskForm extends React.Component {
 
   clickt1(e) {
     console.log(e.target);
-    this.setState({ textval: e.target.alt });
+    this.setState({ text: e.target.alt });
   }
 
   submit(data, formRef) {
+    console.log('submit', data, formRef);
     const { text } = data;
     TasksCollection.insert({ text },
       (error) => {
@@ -50,7 +51,8 @@ class TaskForm extends React.Component {
           ref={ref => { fRef = ref; }}
           schema={bridge}
           onSubmit={data => this.submit(data, fRef)}
-          onChangeModel={model => console.log(model)}
+          model={this.state}
+          // onChangeModel={model => console.log(model)}
         >
           <Grid.Row>
             <Segment>
@@ -65,8 +67,8 @@ class TaskForm extends React.Component {
           <Segment>
             <TextField
               name='text'
-              value={this.state.textval}
             />
+            <ErrorsField/>
             <SubmitField value='Submit'/>
           </Segment>
         </AutoForm>

@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Stuffs } from '../../api/stuff/Stuff.js';
+import { TasksCollection } from '../../api/TasksCollection';
 
 /* eslint-disable no-console */
 
@@ -16,3 +17,4 @@ if (Stuffs.collection.find().count() === 0) {
     Meteor.settings.defaultData.map(data => addData(data));
   }
 }
+TasksCollection.find();
