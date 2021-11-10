@@ -4,6 +4,7 @@ import DataTableExtensions from 'react-data-table-component-extensions';
 import '../../../client/dataTables.css';
 
 const columns = [
+  { name: 'Date', selector: row => row.date, sortable: true },
   { name: 'Name', selector: row => row.name, sortable: true },
   { name: 'Phone', selector: row => row.phone, sortable: true },
   { name: 'Location', selector: row => row.location, sortable: true },
@@ -14,7 +15,8 @@ const columns = [
 ];
 
 export const AnimalTable = (props) => {
-  const data = props.stuffs;
+  // eslint-disable-next-line
+  const data = props.reports;
   const tableData = {
     columns,
     data,

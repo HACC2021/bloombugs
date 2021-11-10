@@ -3,16 +3,17 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The ReportsCollection. It encapsulates state and variable values for each report.
  */
-class StuffsCollection {
+class ReportsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'ReportsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      date: String,
       name: String,
       phone: String,
       owner: String,
@@ -35,7 +36,7 @@ class StuffsCollection {
 }
 
 /**
- * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * The singleton instance of the ReportsCollection.
+ * @type {ReportsCollection}
  */
-export const Stuffs = new StuffsCollection();
+export const Report = new ReportsCollection();

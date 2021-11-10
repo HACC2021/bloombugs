@@ -6,27 +6,27 @@ import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Image, Header, Dropdown } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
-const kahukai = '/images/KahukaiLogo.png';
+const kahukai = '/images/Kahukai_transparent.png';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu color='blue' attached="top" borderless id="nav" className="ui stackable menu" >
+      <Menu attached="top" borderless id="nav" className="ui stackable menu">
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Image src={kahukai} size='tiny' alt='Kahukai app logo'/>
+          <Image src={kahukai} size='small' alt='Kahukai app logo'/>
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="/distress">
-          <Header as="h4">Report Distress</Header>
+          <Header as="h4">Distress Report</Header>
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="/sighting">
-          <Header as="h4">Report Sighting</Header>
+          <Header as="h4">Sighting Report</Header>
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="/infodistress">
           <Header as="h4">Info</Header>
         </Menu.Item>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/list" key='list'>Records</Menu.Item>
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/adminlist" key='adminlist'><Header as="h4">Reports List</Header></Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
