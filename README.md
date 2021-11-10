@@ -11,3 +11,5 @@ my directory, I would type in "cd documents/github/bloombugs/bloombugs-kahukai/a
 folder, you will need to type in "meteor npm install". That will install meteor into the app folder so that you can run the application. Once done, type in "meteor run"
 and the program will be running. When it says "App running at: http://localhost:3000/", your application is running successfully. Copy the part where it says "http://localhost:3000/"
 to your web browser and hit enter. That should bring up the application succesfully. 
+
+The biggest security and privacy component to the app is maintaining the animals privacy by protecting their location. The public users will not be able to access any animal reports whereas HMAR admin users will be able to log in and view every report and location. By creating an admin role and only allowing the admin roles to access the submitted dataset we will hopefully reduce traffic around the animals from the curious public. Also, as the app does not require the public user to download an app, log in, nor requests location tracking, there is not much privacy of the user that is being violated.
