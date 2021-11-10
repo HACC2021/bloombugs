@@ -3,6 +3,7 @@
 Hello and welcome to our HACC submission for 2021. Our group name is Bloombugs and consists of Jacob Hardy, Taryn Takebayashi, Kiana Walters, Kelly Hwang, and Kylie 
 Higashionna. For our challenge, we selected the HMAR Reporting application and used Meteor, Mongo, Semantic UI/React, and hosted on a Digital Ocean droplet.
 
+## Instructions
 To run the app, you will want to clone the repository to your local PC or Mac. Make sure that you clone it in an easy to find location. Next, open either your Terminal 
 if you are on Mac or Command Shell if you are on PC. Next, you will want to get to the directory in Terminal or the Command Shell. In the Terminal/Command Shell type in 
 "cd" and then the path to the folder that the cloned repo is in. For example mine is in my bloombugs folder so I would type "cd documents/github/bloombugs" and hit enter.
@@ -12,4 +13,5 @@ folder, you will need to type in "meteor npm install". That will install meteor 
 and the program will be running. When it says "App running at: http://localhost:3000/", your application is running successfully. Copy the part where it says "http://localhost:3000/"
 to your web browser and hit enter. That should bring up the application succesfully. 
 
-The biggest security and privacy component to the app is maintaining the animals privacy by protecting their location. The public users will not be able to access any animal reports whereas HMAR admin users will be able to log in and view every report and location. By creating an admin role and only allowing the admin roles to access the submitted dataset we will hopefully reduce traffic around the animals from the curious public. Also, as the app does not require the public user to download an app, log in, nor requests location tracking, there is not much privacy of the user that is being violated. We also don't want just anyone to be able to access records because the records may contain users' phone numbers and locations. When we deploy our app online, we also plan to use SSL certificate. We will look into how multi-factor authentication works and see if it could be implemented.
+## Security and Privacy
+The biggest security and privacy component to the app is maintaining the animals privacy by protecting their location. The public users will not be able to access any animal reports whereas HMAR admin users will be able to log in and view every report and location. By creating an admin role and only allowing the admin roles to access the submitted dataset we will hopefully reduce traffic around the animals from the curious public. Also, as the app does not require the public user to download an app, log in, nor requests location tracking, there is not much privacy of the user that is being violated.
