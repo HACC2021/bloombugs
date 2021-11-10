@@ -1,2 +1,0 @@
-Our app for HACC2021's HMAR challenge is called Kahukai, for Guardian of the Sea. Our first draft is in the branch called Kahukai.
-The other sandbox folder is where we tried out and will continue to try out and share ideas on how to improve our app.
