@@ -7,7 +7,7 @@ const dlnr = '/images/DLNR.png';
 class Other extends React.Component {
   render() {
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <Grid verticalAlign='middle' textAlign='center' container>
         <Grid.Column width={14}>
           <Header as="h3">Unfortunately HMAR only responds to seals, turtles and birds.</Header>
           <Header as="h3">Below are numbers of other organzations that respond to other wildlife </Header>

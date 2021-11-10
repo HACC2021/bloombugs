@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class Distress extends React.Component {
   render() {
     return (
-      <Grid id='landing-page' verticalAlign='middle' textAlign='center' container>
+      <Grid verticalAlign='middle' textAlign='center' container id='distress'>
         <Grid.Column width={14}>
           <Header as="h1">If the animal is in distress, it is preferable to call HMAR
             so they can attend to the animal as soon as possible (888) 256-9840. However, if you cannot call, please fill out the form</Header>
@@ -18,7 +18,7 @@ class Distress extends React.Component {
             </a>
           </Button>
           <hr/>
-          <Button inverted size='big' color='blue' icon labelPosition='right'>
+          <Button size='big' color='red' icon labelPosition='right'>
             <Icon name='file text'/>
             <Link to="/sighting">
               Click for Online Form

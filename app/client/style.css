@@ -1,6 +1,11 @@
 #landing-page {
   padding-top: 10%;
-  padding-bottom: 50%;
+  background-color: #CCE2FF;
+  background: url('https://fh-sites.imgix.net/sites/2813/2017/10/06201024/North-Shore-Hawaii.jpg?auto=compress%2Cformat&w=1000&h=1000&fit=max') no-repeat;
+  background-size: 100%;
+padding-bottom: 100%;
+  color: white;
+
 }
 .logo {
   padding-top: 20px;
@@ -9,4 +14,46 @@
 .clickHere {
   padding-top: 20px;
   padding-bottom: 10px;
+}
+
+.ui.blue.borderless.top.menu {
+  padding: 20px;
+  background-color: floralwhite;
+
+}
+
+.ui.sealsighting.menu {
+  background-color: #4183C4;
+  box-shadow: none;
+  padding: 10%;
+  position: center;
+  border: none;
+}
+
+
+.ui.turtlesighting.menu {
+  background-color: #4183C4;
+  box-shadow: none;
+  padding: 10%;
+  position: center;
+  border: none;
+}
+
+body {
+  background-color: #4183C4 !important;
+}
+
+
+.ui.sighting.menu {
+  background-color: #4183C4;
+  color: white;
+  border: none;
+  box-shadow: none;
+  padding-top: 10%;
+}
+
+.ui.sighting.menu .button {
+  position: center;
+  padding: 100px;
+
 }

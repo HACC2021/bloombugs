@@ -12,7 +12,7 @@ const kahukai = '/images/KahukaiLogo.png';
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu color='blue' attached="top" borderless>
+      <Menu color='blue' attached="top" borderless id="nav" className="ui stackable menu" >
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Image src={kahukai} size='tiny' alt='Kahukai app logo'/>
         </Menu.Item>
