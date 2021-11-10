@@ -15,6 +15,7 @@ const columns = [
 ];
 
 export const AnimalTable = (props) => {
+  // eslint-disable-next-line
   const data = props.reports;
   const tableData = {
     columns,

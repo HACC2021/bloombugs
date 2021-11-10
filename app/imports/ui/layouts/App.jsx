@@ -51,8 +51,8 @@ class App extends React.Component {
             <Route path="/sealdistress" component={SealDistress}/>
             <Route path="/taskform" component={TaskForm}/>
             <Route path="/testpage" component={TestPage}/>
-            <ProtectedRoute path="/list" component={ListReport}/>
-            <ProtectedRoute path="/adminlist" component={ListReportAdmin}/>
+            <AdminProtectedRoute path="/list" component={ListReport}/>
+            <AdminProtectedRoute path="/adminlist" component={ListReportAdmin}/>
             <ProtectedRoute path="/edit/:_id" component={EditReport}/>
             <Route component={NotFound}/>
           </Switch>

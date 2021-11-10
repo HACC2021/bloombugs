@@ -8,7 +8,7 @@ class ReportItem extends React.Component {
   render() {
     return (
       <Table.Row>
-       <Table.Cell>{this.props.report.date}</Table.Cell>
+        <Table.Cell>{this.props.report.date}</Table.Cell>
         <Table.Cell>{this.props.report.name}</Table.Cell>
         <Table.Cell>{this.props.report.phone}</Table.Cell>
         <Table.Cell>{this.props.report.location}</Table.Cell>

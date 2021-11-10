@@ -67,11 +67,11 @@ class TurtleSighting extends React.Component {
               <TextField name='location'/>
               <TextField name='description' placeholder='ex. beach name, building near by, statues near by'/>
               <Grid.Row>
-                <Image src={satellite} size="middle" centered/>
+                <Image src={satellite} size="medium" centered/>
                 <Header textAlign='center'>Satellite</Header>
               </Grid.Row>
               <Grid.Row>
-                <Image src={tags} size="middle" centered/>
+                <Image src={tags} size="medium" centered/>
                 <Header textAlign='center'>Tag</Header>
               </Grid.Row>
               <TextField name='markers' placeholder='ex. tags, satellite'/>

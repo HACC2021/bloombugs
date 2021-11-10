@@ -70,7 +70,6 @@ class BirdSighting extends React.Component {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
             <Segment>
               <Grid.Row>
-                <Header textAlign='center'>Albatross</Header>
                 <Image src={bfal} size="small" centered alt='albatross'/>
               </Grid.Row>
             </Segment>
