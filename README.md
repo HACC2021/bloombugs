@@ -14,3 +14,4 @@ to your web browser and hit enter. That should bring up the application succesfu
 
 ## Security and Privacy
 The biggest security and privacy component to the app is maintaining the animals privacy by protecting their location. The public users will not be able to access any animal reports whereas HMAR admin users will be able to log in and view every report and location. By creating an admin role and only allowing the admin roles to access the submitted dataset we will hopefully reduce traffic around the animals from the curious public. Also, as the app does not require the public user to download an app, log in, nor requests location tracking, there is not much privacy of the user that is being violated.
+ 
