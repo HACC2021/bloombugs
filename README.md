@@ -6,7 +6,7 @@ Higashionna. For our challenge, we selected the HMAR Reporting application and u
 ## Instructions
 You can access the current deployment via Digital Ocean at: http://147.182.184.239/
 
-To run the app, you will want to clone the repository to your local PC or Mac. Make sure that you clone it in an easy to find location. Next, open either your Terminal 
+If you want to download our code and run our app locally, you will want to clone the repository to your local PC or Mac. Make sure that you clone it in an easy to find location. Next, open either your Terminal 
 if you are on Mac or Command Shell if you are on PC. Next, you will want to get to the directory in Terminal or the Command Shell. In the Terminal/Command Shell type in 
 "cd" and then the path to the folder that the cloned repo is in. For example mine is in my bloombugs folder so I would type "cd documents/github/bloombugs" and hit enter.
 Once in the folder, you need to find the app folder which should be in the folder of the repo. For this application, you need to cd into bloombugs-kahukai as well. For
