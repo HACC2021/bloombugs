@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Report } from '../../api/report/Report.js';
 import { TasksCollection } from '../../api/TasksCollection';
+import { Locations } from '../../api/Locations';
 
 /* eslint-disable no-console */
 
@@ -18,3 +19,4 @@ if (Report.collection.find().count() === 0) {
   }
 }
 TasksCollection.find();
+Locations.find();
