@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Report } from '../../api/report/Report.js';
 import { TasksCollection } from '../../api/TasksCollection';
 import { Locations } from '../../api/Locations';
+import { BirdReport} from '../../api/report/BirdReport';
 
 /* eslint-disable no-console */
 
@@ -13,6 +14,12 @@ function addData(data) {
 
 // Initialize the ReportsCollection if empty.
 if (Report.collection.find().count() === 0) {
+  if (Meteor.settings.defaultData) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultData.map(data => addData(data));
+  }
+}
+if (BirdReport.collection.find().count() === 0) {
   if (Meteor.settings.defaultData) {
     console.log('Creating default data.');
     Meteor.settings.defaultData.map(data => addData(data));

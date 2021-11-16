@@ -8,7 +8,7 @@ import SimpleSchema from 'simpl-schema';
 import { ReactSVG } from 'react-svg';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Tracker } from 'meteor/tracker';
-import { Report } from '../../api/report/Report';
+import { BirdReport } from '../../api/report/BirdReport';
 import { Locations } from '../../api/Locations';
 
 const bfal = '/images/BlackFootAlbatross.jpg';
@@ -66,7 +66,7 @@ class BirdSighting extends React.Component {
     this.handleLocation = this.handleLocation.bind(this);
     this.handleShow = this.handleShow.bind(this);
     this.preserveValues = this.preserveValues.bind(this);
-    Report.collection.attachSchema(formSchema);
+    BirdReport.collection.attachSchema(formSchema);
   }
 
   preserveValues() {
@@ -102,7 +102,7 @@ class BirdSighting extends React.Component {
   submit(data, formRef) {
     const { date, time, animalName, name, phone, location, latitude, longitude, description, numBirds } = data;
     const owner = Meteor.user().username;
-    Report.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numBirds, owner },
+    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numBirds, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
