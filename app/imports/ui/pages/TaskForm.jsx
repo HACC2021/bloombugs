@@ -16,7 +16,7 @@ const bridge = new SimpleSchema2Bridge(taskSchema);
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: '' };
+    this.state = { animalName:'', location: '', longitude: '', latitude: '' };
     this.clickt1 = this.clickt1.bind(this);
     this.schema = new SimpleSchema({
       text: String,

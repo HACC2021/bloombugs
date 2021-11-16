@@ -19,4 +19,4 @@ if (Report.collection.find().count() === 0) {
   }
 }
 TasksCollection.find();
-Locations.find();
+Locations.collection.find();

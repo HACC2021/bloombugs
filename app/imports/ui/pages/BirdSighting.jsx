@@ -6,6 +6,8 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { ReactSVG } from 'react-svg';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Tracker } from 'meteor/tracker';
 import { Report } from '../../api/report/Report';
 import { Locations } from '../../api/Locations';
 
@@ -37,7 +39,8 @@ const formSchema = new SimpleSchema({
     allowedValues: ['1', '2', '3', '4+'],
     defaultValue: '1',
   },
-});
+},
+{ tracker: Tracker });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
@@ -52,9 +55,10 @@ class BirdSighting extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showing: false, latitude: '',
-      longitude: '', location: '' };
-    this.handleClick = this.handleClick.bind(this);
+      longitude: '', location: '', date: '' };
+    this.handleLocation = this.handleLocation.bind(this);
     this.handleShow = this.handleShow.bind(this);
+    Report.collection.attachSchema(formSchema);
   }
 
   handleShow() {
@@ -62,12 +66,13 @@ class BirdSighting extends React.Component {
     this.state.showing ? this.setState({ showing: false }) : this.setState({ showing: true });
   }
 
-  handleClick(e) {
+  handleLocation(e) {
     const id = e.target.id;
     const tokens = id.split('-');
     const path1 = tokens[0];
     console.log(path1);
-    const loc = Locations.find({ path: path1 }).fetch()[0];
+    const loc = Locations.collection.find({ path: path1 }).fetch()[0];
+    console.log(loc);
     this.setState({ location: loc.location });
     this.setState({ latitude: loc.latitude });
     this.setState({ longitude: loc.longitude });
@@ -95,7 +100,7 @@ class BirdSighting extends React.Component {
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Bird Sighting Form</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state} >
             <Segment>
               <Grid.Row>
                 <Image src={bfal} size="small" centered alt='albatross'/>
@@ -112,7 +117,7 @@ class BirdSighting extends React.Component {
               <NumField name='longitude'/>
               <Button onClick={this.handleShow}>{this.state.showing ? 'Done' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
-                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleClick} />
+                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
               </Segment>}
               <LongTextField name='description'/>
               <SelectField name='numBirds'/>
@@ -125,4 +130,20 @@ class BirdSighting extends React.Component {
     );
   }
 }
-export default BirdSighting;
+
+// withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+export default withTracker(() => {
+  // Get access to Location documents.
+  const subscription = Meteor.subscribe(Locations.userPublicationName);
+  const subscription2 = Meteor.subscribe(Locations.adminPublicationName);
+  // Determine if the subscription is ready
+  const ready = subscription.ready();
+  const ready2 = subscription2.ready();
+  // Get the Report documents
+  const reports = Locations.collection.find({}).fetch();
+  return {
+    reports,
+    ready,
+    ready2,
+  };
+})(BirdSighting);

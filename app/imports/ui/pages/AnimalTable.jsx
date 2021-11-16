@@ -1,7 +1,9 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import DataTableExtensions from 'react-data-table-component-extensions';
+import PropTypes from 'prop-types';
 import '../../../client/dataTables.css';
+
 
 const columns = [
   { name: 'Date', selector: row => row.date, sortable: true },
@@ -15,7 +17,6 @@ const columns = [
 ];
 
 export const AnimalTable = (props) => {
-  // eslint-disable-next-line
   const data = props.reports;
   const tableData = {
     columns,
@@ -32,3 +33,8 @@ export const AnimalTable = (props) => {
     </DataTableExtensions>
   );
 };
+
+AnimalTable.propTypes = {
+  reports: PropTypes.array,
+};
+
