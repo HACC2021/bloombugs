@@ -25,14 +25,6 @@ Meteor.publish(Report.adminPublicationName, function () {
 
 Meteor.publish(Locations.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Locations.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-Meteor.publish(Locations.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Locations.collection.find();
   }
   return this.ready();

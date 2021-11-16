@@ -54,7 +54,7 @@ class App extends React.Component {
             <Route path="/testpage" component={TestPage}/>
             <AdminProtectedRoute path="/list" component={ListReport}/>
             <AdminProtectedRoute path="/adminlist" component={ListReportAdmin}/>
-            <AdminProtectedRoute path="/birdlistreportadmin" component={BirdListReportAdmin}/>
+            <AdminProtectedRoute path="/birdadminlist" component={BirdListReportAdmin}/>
             <ProtectedRoute path="/edit/:_id" component={EditReport}/>
             <Route component={NotFound}/>
           </Switch>
