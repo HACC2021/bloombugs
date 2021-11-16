@@ -54,16 +54,35 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 class BirdSighting extends React.Component {
   constructor(props) {
     super(props);
+    this.myDate = React.createRef();
+    this.myTime = React.createRef();
+    this.myAnimalName = React.createRef();
+    this.myName = React.createRef();
+    this.myPhone = React.createRef();
+    this.myDescription = React.createRef();
+    this.myNumBirds = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
     this.handleShow = this.handleShow.bind(this);
+    this.preserveValues = this.preserveValues.bind(this);
     Report.collection.attachSchema(formSchema);
+  }
+
+  preserveValues() {
+    this.setState({ date: this.myDate.current.value });
+    this.setState({ time: this.myTime.current.value });
+    this.setState({ animalName: this.myAnimalName.current.value });
+    this.setState({ name: this.myName.current.value });
+    this.setState({ phone: this.myPhone.current.value });
+    this.setState({ description: this.myDescription.current.value });
+    this.setState({ numbirds: this.myNumBirds.current.value });
   }
 
   handleShow() {
     // eslint-disable-next-line no-unused-expressions
     this.state.showing ? this.setState({ showing: false }) : this.setState({ showing: true });
+    this.preserveValues();
   }
 
   handleLocation(e) {
@@ -76,6 +95,7 @@ class BirdSighting extends React.Component {
     this.setState({ location: loc.location });
     this.setState({ latitude: loc.latitude });
     this.setState({ longitude: loc.longitude });
+    this.preserveValues();
   }
 
   // On submit, insert the data.
@@ -107,11 +127,11 @@ class BirdSighting extends React.Component {
               </Grid.Row>
             </Segment>
             <Segment>
-              <TextField name='date' type='date'/>
-              <TextField name='time' type='time'/>
-              <SelectField name='animalName'/>
-              <TextField name='name'/>
-              <TextField name='phone' decimal={false}/>
+              <TextField name='date' type='date' inputRef={this.myDate}/>
+              <TextField name='time' type='time' inputRef={this.myTime}/>
+              <SelectField name='animalName' inputRef={this.myAnimalName}/>
+              <TextField name='name' inputRef={this.myName}/>
+              <TextField name='phone' decimal={false} inputRef={this.myPhone}/>
               <TextField name='location'/>
               <NumField name='latitude'/>
               <NumField name='longitude'/>
@@ -119,8 +139,8 @@ class BirdSighting extends React.Component {
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
               </Segment>}
-              <LongTextField name='description'/>
-              <SelectField name='numBirds'/>
+              <LongTextField name='description' inputRef={this.myDescription}/>
+              <SelectField name='numBirds' inputRef={this.myNumBirds}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>

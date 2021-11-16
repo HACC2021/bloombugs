@@ -14,18 +14,20 @@ class ReportsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       date: String,
+      time: String,
+      animalName: String,
       name: String,
       phone: String,
-      owner: String,
       location: String,
+      latitude: Number,
+      longitude: Number,
       description: String,
-      markers: String,
-      behavior: String,
-      numPeople: {
+      numBirds: {
         type: String,
-        allowedValues: ['0 - 25', '26 - 50', '51 - 100', '100 +'],
-        defaultValue: '0 - 25',
+        allowedValues: ['1', '2', '3', '4+'],
+        defaultValue: '1',
       },
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
