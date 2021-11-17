@@ -1,9 +1,10 @@
 #landing-page {
   padding-top: 10%;
   background-color: #CCE2FF;
-  background: url('https://fh-sites.imgix.net/sites/2813/2017/10/06201024/North-Shore-Hawaii.jpg?auto=compress%2Cformat&w=1000&h=1000&fit=max') no-repeat center center fixed;
+  background: url('https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding-bottom: 100%;
+  padding-bottom: 20%;
+
   color: white;
 }
 .logo {

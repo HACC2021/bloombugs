@@ -10,6 +10,7 @@ class Other extends React.Component {
       <Grid textAlign='center' container>
         <Grid.Row verticalAlign='middle'>
           <Grid.Column width={14}>
+            <div className="ui hidden divider"></div>
             <Header as="h3">Unfortunately HMAR only responds to seals, turtles and birds.</Header>
             <Header as="h3">Below are numbers of other organzations that respond to other wildlife </Header>
             <Image src={hwc} size="tiny" centered alt='Hawaii Wildlife Center logo'/>

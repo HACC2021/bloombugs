@@ -12,9 +12,9 @@ class Landing extends React.Component {
             <Grid.Column width={14}>
               <h3 className="intro">Welcome to Kahukai: the HMAR Reporting app</h3>
               <p>Select an option from below:</p>
-              <Button as={NavLink} className="distressButton" exact to="/distress" color='red'>Animal in distress</Button>
-              <Image src='https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png' size='small' centered className="logo"/>
-              <Button as={NavLink} className="sightingButton" exact to="/sighting" color='blue'>Animal sighting</Button>
+              <Button as={NavLink} className="distressButton" exact to="/distress" color='red' size='big'>Animal in distress</Button>
+
+              <Button as={NavLink} className="sightingButton" exact to="/sighting" color='blue' size='big'>Animal sighting</Button>
               <p className="clickHere">Don&apos;t know what an animal in distress looks like?</p>
               <Button as={NavLink} className="infoButton" exact to="/infodistress">Click here</Button>
             </Grid.Column>

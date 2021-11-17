@@ -108,6 +108,8 @@ class TurtleSighting extends React.Component {
     return (
       <Grid container centered>
         <Grid.Column>
+          <div className="ui hidden divider"></div>
+          <div className="ui hidden divider"></div>
           <Header as="h2" textAlign="center">Turtle Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
@@ -118,26 +120,29 @@ class TurtleSighting extends React.Component {
               <TextField name='name' inputRef={this.myName}/>
               <TextField name='phone' decimal={false} inputRef={this.myPhone}/>
               <TextField name='location'/>
-              <NumField name='latitude'/>
-              <NumField name='longitude'/>
               <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
               </Segment>}
               <LongTextField name='description' inputRef={this.myDescription}/>
               <Grid.Row>
+                <Header as="h5" textAlign="center">Satellite</Header>
                 <Image src={satellite} size="medium" centered/>
-                <Header textAlign='center'>Satellite</Header>
               </Grid.Row>
+              <div className="ui hidden divider"></div>
               <Grid.Row>
+                <Header as="h5" textAlign="center">Tag</Header>
                 <Image src={tags} size="medium" centered/>
-                <Header textAlign='center'>Tag</Header>
               </Grid.Row>
               <SelectField name='numTurtles' inputRef={this.myNumTurtles}/>
+              <Header as="h5" >Please add photos of the animals or area to better help the volunteers.</Header>
+              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange} />
+              <div className="ui hidden divider"></div>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>
+          <div className="ui hidden divider"></div>
         </Grid.Column>
       </Grid>
     );

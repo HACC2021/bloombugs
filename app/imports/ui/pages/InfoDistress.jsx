@@ -6,18 +6,19 @@ class InfoDistress extends React.Component {
   render() {
     return (
       <Container>
-        <Grid textAlign='center' container>
+        <Grid textAlign='center' >
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
+              <div className="ui hidden divider"></div>
               <Header as="h1">Don&apos;t know what an animal in distress looks like?</Header>
               <p>Click on an animal below to see examples</p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Grid textAlign='center' container>
+        <Grid textAlign='center' >
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
-              <Button secondary inverted><Link to="/sealdistress">Seal</Link></Button>
+              <Button secondary ><Link to="/sealdistress">Seal</Link></Button>
               <Button secondary inverted><Link to="/turtledistress">Turtle</Link></Button>
             </Grid.Column>
             <Grid.Row>

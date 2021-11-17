@@ -5,10 +5,11 @@ import { Link } from 'react-router-dom';
 class Distress extends React.Component {
   render() {
     return (
-      <Grid id='distress' textAlign='center' container>
-        <Grid.Row verticalAlign='middle'>
+      <Grid id='distress' textAlign='center'>
+        <Grid.Row verticalAlign='middle' style={{background: "#0973ba"}}>
           <Grid.Column width={14}>
-            <Header as="h2">If the animal is in distress, it is preferable to call HMAR
+            <div className="ui hidden divider"></div>
+            <Header as="h2" style={{color: "white"}}>If the animal is in distress, it is preferable to call HMAR
             so they can attend to the animal as soon as possible (888) 256-9840. However, if you cannot call, please fill out the form</Header>
             <Button animated size='massive' color='green'>
               <Button.Content visible>Click for Phone Call</Button.Content>
@@ -21,10 +22,11 @@ class Distress extends React.Component {
             <hr/>
             <Button inverted size='big' color='blue' icon labelPosition='right'>
               <Icon name='file text'/>
-              <Link to="/sighting">
+              <Link to="/distressform" style={{color: "white"}}>
               Click for Online Form
               </Link>
             </Button>
+            <div className="ui hidden divider"></div>
           </Grid.Column>
         </Grid.Row>
       </Grid>

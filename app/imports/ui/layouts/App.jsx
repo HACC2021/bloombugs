@@ -6,17 +6,20 @@ import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Landing from '../pages/Landing';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import ListReport from '../pages/ListReport';
 import ListReportAdmin from '../pages/ListReportAdmin';
 import BirdListReportAdmin from '../pages/BirdListReportAdmin';
 import SealListReportAdmin from '../pages/SealListReportAdmin';
 import TurtleListReportAdmin from '../pages/TurtleListReportAdmin';
+import DistressListReportAdmin from '../pages/DistressListReportAdmin';
 import EditReport from '../pages/EditReport';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Distress from '../pages/Distress';
+import DistressForm from '../pages/DistressForm';
 import Sighting from '../pages/Sighting';
 import SealSighting from '../pages/SealSighting';
 import TurtleSighting from '../pages/TurtleSighting';
@@ -29,6 +32,7 @@ import SealDistress from '../pages/SealDistress';
 import TaskForm from '../pages/TaskForm';
 import TestPage from '../pages/testPage';
 
+
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
   render() {
@@ -40,6 +44,7 @@ class App extends React.Component {
             <Route exact path="/" component={Landing}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/distress" component={Distress}/>
+            <Route path="/distressform" component={DistressForm}/>
             <Route path="/sighting" component={Sighting}/>
             <Route path="/sealsighting" component={SealSighting}/>
             <Route path="/turtlesighting" component={TurtleSighting}/>
@@ -59,9 +64,11 @@ class App extends React.Component {
             <AdminProtectedRoute path="/birdadminlist" component={BirdListReportAdmin}/>
             <AdminProtectedRoute path="/sealadminlist" component={SealListReportAdmin}/>
             <AdminProtectedRoute path="/turtleadminlist" component={TurtleListReportAdmin}/>
+            <AdminProtectedRoute path="distressadminlist" component={DistressListReportAdmin}/>
             <ProtectedRoute path="/edit/:_id" component={EditReport}/>
             <Route component={NotFound}/>
           </Switch>
+          <Footer/>
         </div>
       </Router>
     );

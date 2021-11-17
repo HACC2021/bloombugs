@@ -12,7 +12,7 @@ const kahukai = '/images/Kahukai_transparent.png';
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu attached="top" borderless id="nav" className="ui stackable menu">
+      <Menu attached="top" borderless id="nav" className="ui stackable menu" style={{background: "white" , border: "none"}}>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Image src={kahukai} size='small' alt='Kahukai app logo'/>
         </Menu.Item>
@@ -26,7 +26,7 @@ class NavBar extends React.Component {
           <Header as="h4">Info</Header>
         </Menu.Item>
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/adminlist" key='adminlist'><Header as="h4">Reports List</Header></Menu.Item>
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/adminlist" key='adminlist'><Header as="h4" >Reports List</Header></Menu.Item>
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Menu.Item as={NavLink} activeClassName="active" exact to="/birdadminlist" key='birdadminlist'><Header as="h4">Bird Sightings</Header></Menu.Item>
@@ -36,6 +36,9 @@ class NavBar extends React.Component {
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
           <Menu.Item as={NavLink} activeClassName="active" exact to="/turtleadminlist" key='turtleadminlist'><Header as="h4">Turtle Sightings</Header></Menu.Item>
+        ) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/distressadminlist" key='distressadminlist'><Header as="h4">DISTRESS Sightings</Header></Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (
@@ -53,6 +56,7 @@ class NavBar extends React.Component {
             </Dropdown>
           )}
         </Menu.Item>
+        <div className="ui hidden divider"></div>
       </Menu>
     );
   }
