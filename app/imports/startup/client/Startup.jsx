@@ -49,31 +49,31 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path7',
-      location: 'Punalu&apos;u Beach Park',
+      location: 'Punalu&#39u Beach Park',
       latitude: 21.57675513,
       longitude: -157.8816977,
     });
     Locations.collection.insert({
       path: 'path8',
-      location: 'Hau&apos;ula Beach',
+      location: 'Hau&#39ula Beach',
       latitude: 21.60718287,
       longitude: -157.9051358,
     });
     Locations.collection.insert({
       path: 'path9',
-      location: 'Hau&apos;ula Beach Park',
+      location: 'Hau&#39ula Beach Park',
       latitude: 21.61214574,
       longitude: -157.9112922,
     });
     Locations.collection.insert({
       path: 'path10',
-      location: 'Kaipapa&apos;u Beach',
+      location: 'Kaipapa&#39u Beach',
       latitude: 21.6244874,
       longitude: -157.9179965,
     });
     Locations.collection.insert({
       path: 'path11',
-      location: 'Pounder&apos;s Beach',
+      location: 'Pounder&#39s Beach',
       latitude: 21.63274935,
       longitude: -157.9203893,
     });
@@ -97,7 +97,7 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path15',
-      location: 'Moku&apos;auia Beach',
+      location: 'Moku&#39auia Beach',
       latitude: 21.66919462,
       longitude: -157.9369048,
     });
@@ -109,7 +109,7 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path17',
-      location: 'Hanaka&apos;ilio Beach',
+      location: 'Hanaka&#39ilio Beach',
       latitude: 21.70944943,
       longitude: -157.9804948,
     });
@@ -229,13 +229,13 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path37',
-      location: 'Pu&apos;uloa Beach Park',
+      location: 'Pu&#39uloa Beach Park',
       latitude: 21.31381354,
       longitude: -157.9917083,
     });
     Locations.collection.insert({
       path: 'path38',
-      location: 'One&apos;ula Beach Park',
+      location: 'One&#39ula Beach Park',
       latitude: 21.30664122,
       longitude: -158.0253328,
     });
@@ -301,7 +301,7 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path49',
-      location: 'Aki&apos;s Beach',
+      location: 'Aki&#39s Beach',
       latitude: 21.46861811,
       longitude: -158.2176129,
     });
@@ -325,13 +325,13 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path53',
-      location: 'Ma&apos;ili Beach Park',
+      location: 'Ma&#39ili Beach Park',
       latitude: 21.41920014,
       longitude: -158.1778479,
     });
     Locations.collection.insert({
       path: 'path54',
-      location: 'Ma&apos;ili Point Beach Park',
+      location: 'Ma&#39ili Point Beach Park',
       latitude: 21.40522257,
       longitude: -158.1774075,
     });
@@ -373,7 +373,7 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path61',
-      location: 'He&apos;eia State Park',
+      location: 'He&#39eia State Park',
       latitude: 21.44078018,
       longitude: -157.8099435,
     });
@@ -451,13 +451,13 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path74',
-      location: 'Makapu&apos;u Beach',
+      location: 'Makapu&#39u Beach',
       latitude: 21.3161047,
       longitude: -157.6655427,
     });
     Locations.collection.insert({
       path: 'path75',
-      location: 'Makapu&apos;u Beach Park',
+      location: 'Makapu&#39u Beach Park',
       latitude: 21.31312536,
       longitude: -157.6606977,
     });
@@ -583,7 +583,7 @@ Meteor.startup(() => {
     });
     Locations.collection.insert({
       path: 'path96',
-      location: 'Papa&apos;iloa Beach',
+      location: 'Papa&#39iloa Beach',
       latitude: 21.60975328,
       longitude: -158.097215,
     });

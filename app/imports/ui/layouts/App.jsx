@@ -9,6 +9,8 @@ import NavBar from '../components/NavBar';
 import ListReport from '../pages/ListReport';
 import ListReportAdmin from '../pages/ListReportAdmin';
 import BirdListReportAdmin from '../pages/BirdListReportAdmin';
+import SealListReportAdmin from '../pages/SealListReportAdmin';
+import TurtleListReportAdmin from '../pages/TurtleListReportAdmin';
 import EditReport from '../pages/EditReport';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -55,6 +57,8 @@ class App extends React.Component {
             <AdminProtectedRoute path="/list" component={ListReport}/>
             <AdminProtectedRoute path="/adminlist" component={ListReportAdmin}/>
             <AdminProtectedRoute path="/birdadminlist" component={BirdListReportAdmin}/>
+            <AdminProtectedRoute path="/sealadminlist" component={SealListReportAdmin}/>
+            <AdminProtectedRoute path="/turtleadminlist" component={TurtleListReportAdmin}/>
             <ProtectedRoute path="/edit/:_id" component={EditReport}/>
             <Route component={NotFound}/>
           </Switch>

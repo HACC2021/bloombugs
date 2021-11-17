@@ -44,12 +44,6 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* class MyTextField extends TextField {
-  constructor(props) {
-    super(props);
-    this.birdName = React.createRef();
-  }
-} */
 /** Renders the Page for adding a document. */
 class BirdSighting extends React.Component {
   constructor(props) {
@@ -120,7 +114,7 @@ class BirdSighting extends React.Component {
       <Grid container centered>
         <Grid.Column>
           <Header as="h2" textAlign="center">Bird Sighting Form</Header>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state} >
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
               <Grid.Row>
                 <Image src={bfal} size="small" centered alt='albatross'/>
@@ -135,7 +129,7 @@ class BirdSighting extends React.Component {
               <TextField name='location'/>
               <NumField name='latitude'/>
               <NumField name='longitude'/>
-              <Button onClick={this.handleShow}>{this.state.showing ? 'Done' : 'Get Location'}</Button>
+              <Button onClick={this.handleShow}>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
               </Segment>}
