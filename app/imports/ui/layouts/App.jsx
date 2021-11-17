@@ -6,12 +6,10 @@ import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import Landing from '../pages/Landing';
 import NavBar from '../components/NavBar';
-import ListReport from '../pages/ListReport';
-import ListReportAdmin from '../pages/ListReportAdmin';
 import BirdListReportAdmin from '../pages/BirdListReportAdmin';
 import SealListReportAdmin from '../pages/SealListReportAdmin';
 import TurtleListReportAdmin from '../pages/TurtleListReportAdmin';
-import EditReport from '../pages/EditReport';
+import EditReport from '../pages/EditBirdReport';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -54,8 +52,6 @@ class App extends React.Component {
             <Route path="/sealdistress" component={SealDistress}/>
             <Route path="/taskform" component={TaskForm}/>
             <Route path="/testpage" component={TestPage}/>
-            <AdminProtectedRoute path="/list" component={ListReport}/>
-            <AdminProtectedRoute path="/adminlist" component={ListReportAdmin}/>
             <AdminProtectedRoute path="/birdadminlist" component={BirdListReportAdmin}/>
             <AdminProtectedRoute path="/sealadminlist" component={SealListReportAdmin}/>
             <AdminProtectedRoute path="/turtleadminlist" component={TurtleListReportAdmin}/>
