@@ -125,7 +125,7 @@ class SealSighting extends React.Component {
               <TextField name='location'/>
               <NumField name='latitude'/>
               <NumField name='longitude'/>
-              <Button onClick={this.handleShow}>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
+              <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
               </Segment>}
