@@ -14,7 +14,7 @@ class NavBar extends React.Component {
     return (
       <Menu attached="top" borderless id="nav" className="ui stackable menu">
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
-          <Image src={kahukai} size='small' alt='Kahukai app logo'/>
+          <Image src={kahukai} size='tiny' alt='Kahukai app logo'/>
         </Menu.Item>
         <Menu.Item as={NavLink} activeClassName="" exact to="/distress">
           <Header as="h4">Distress Report</Header>
