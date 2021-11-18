@@ -17,7 +17,7 @@ export default class Sighting extends React.Component {
             <Header as="h3" style={{color: "white"}}>Marine Animal Report</Header>
             <p style={{color: "white"}}>What type of animal are you reporting?</p>
             <Button secondary inverted style={{background: "white"}}><Link to="/sealsighting"><Image src={seal} size="medium"/>
-              Hawaiian Seal</Link></Button>
+              Hawaiian Monk Seal</Link></Button>
             <div className="ui hidden divider"></div>
             <Button secondary inverted style={{background: "white"}}><Link to="/turtlesighting"><Image src={turtle} size="medium"/>
               Turtle</Link></Button>

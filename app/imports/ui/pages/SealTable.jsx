@@ -15,7 +15,7 @@ const columns = [
   { name: 'Longitude', selector: row => row.longitude, sortable: true },
   { name: 'Hind Flipper Tag Combo', selector: row => row.hindFlipperTagCombo, sortable: true },
   { name: 'Description', selector: row => row.description, sortable: true },
-  { name: 'Number of Seals', selector: row => row.numSeals, sortable: true },
+  { name: 'Number of People', selector: row => row.numPeople, sortable: true },
 ];
 
 export const SealTable = (props) => {

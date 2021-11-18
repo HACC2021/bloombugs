@@ -29,11 +29,11 @@ const formSchema = new SimpleSchema({
   latitude: Number,
   longitude: Number,
   description: String,
-  numTurtles: {
-    type: String,
-    allowedValues: ['1', '2', '3', '4+'],
-    defaultValue: '1',
-  },
+      numPeople: {
+        type: String,
+        allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
+        defaultValue: '0 - 5',
+      },
 },
 { tracker: Tracker });
 
@@ -49,7 +49,7 @@ class TurtleSighting extends React.Component {
     this.myName = React.createRef();
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
-    this.myNumTurtles = React.createRef();
+    this.myNumPeople = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -65,7 +65,7 @@ class TurtleSighting extends React.Component {
     this.setState({ name: this.myName.current.value });
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ description: this.myDescription.current.value });
-    this.setState({ numTurtles: this.myNumTurtles.current.value });
+    this.setState({ numPeople: this.myNumPeople.current.value });
   }
 
   handleShow() {
@@ -89,9 +89,9 @@ class TurtleSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, numTurtles } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, numPeople } = data;
     const owner = Meteor.user().username;
-    TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numTurtles, owner },
+    TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numPeople, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -134,7 +134,8 @@ class TurtleSighting extends React.Component {
                 <Header as="h5" textAlign="center">Tag</Header>
                 <Image src={tags} size="medium" centered/>
               </Grid.Row>
-              <SelectField name='numTurtles' inputRef={this.myNumTurtles}/>
+              <div className="ui hidden divider"></div>
+              <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
               <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>
               <div className="ui hidden divider"></div>

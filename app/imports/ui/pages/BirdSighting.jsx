@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Image, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, NumField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -20,13 +20,13 @@ const formSchema = new SimpleSchema({
   time: String,
   animalName: {
     type: String,
-    allowedValues: ['Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
+    allowedValues: ['Unknown','Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
       'Brown Booby/Masked Booby BRBO', 'Red Footed Booby/Booby unknown type RFBO', 'Great Frigate GRFR', 'Blue Noddy BGNO',
       'Black Noddy BLNO', 'Brown Noddy/Noddy unknown type BRNO', 'Bonin Petrel BOPE', "Bluwer's Petrel BUPE",
       "Tristram's Storm Petrel/Petrel unknown type TRSP", 'Wedge tail Shearwater WTSH', 'Newell Shearwater NESH',
       'Christmas Shearwater/Shearwater unknown type CHSH', 'Gray-Black Tern GRAT', 'Sooty Tern SOTE',
       'White Tern/Tern unknown type WHTE', 'Red Tail Tropicbird RTTR', 'White Tail Tropicbird/Tropicbird unknown type WTTR'],
-    defaultValue: 'Blackfoot Albatross BFAL',
+    defaultValue: 'Unknown',
   },
   name: String,
   phone: String,
@@ -34,10 +34,10 @@ const formSchema = new SimpleSchema({
   latitude: Number,
   longitude: Number,
   description: String,
-  numBirds: {
+  numPeople: {
     type: String,
-    allowedValues: ['1', '2', '3', '4+'],
-    defaultValue: '1',
+    allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
+    defaultValue: '0 - 5',
   },
 },
 { tracker: Tracker });
@@ -54,7 +54,7 @@ class BirdSighting extends React.Component {
     this.myName = React.createRef();
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
-    this.myNumBirds = React.createRef();
+    this.myNumPeople = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -70,7 +70,7 @@ class BirdSighting extends React.Component {
     this.setState({ name: this.myName.current.value });
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ description: this.myDescription.current.value });
-    this.setState({ numbirds: this.myNumBirds.current.value });
+    this.setState({ numPeople: this.myNumPeople.current.value });
   }
 
   handleShow() {
@@ -94,9 +94,9 @@ class BirdSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, numBirds } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, numPeople } = data;
     const owner = Meteor.user().username;
-    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numBirds, owner },
+    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numPeople, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -111,8 +111,8 @@ class BirdSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
+      <Grid centered style={{background: "#87acb5"}}>
+        <Container><Grid.Column>
           <Header as="h2" textAlign="center">Bird Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
@@ -131,15 +131,16 @@ class BirdSighting extends React.Component {
               <NumField name='longitude'/>
               <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
-                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
+                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation}/>
               </Segment>}
               <LongTextField name='description' inputRef={this.myDescription}/>
-              <SelectField name='numBirds' inputRef={this.myNumBirds}/>
+              <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>
-        </Grid.Column>
+          <div className="ui hidden divider"></div>
+        </Grid.Column></Container>
       </Grid>
     );
   }
