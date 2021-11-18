@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Header, Image, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField, NumField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
@@ -106,11 +106,11 @@ class TurtleSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <Grid.Column>
+      <Grid centered style={{background: "#87acb5"}}>
+        <Container><Grid.Column>
           <div className="ui hidden divider"></div>
           <div className="ui hidden divider"></div>
-          <Header as="h2" textAlign="center">Turtle Sighting Form</Header>
+          <Header as="h2" textAlign="center" style={{color: "white"}}>Turtle Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
               <Header textAlign='center'> Contact Info</Header>
@@ -122,7 +122,7 @@ class TurtleSighting extends React.Component {
               <TextField name='location'/>
               <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
-                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation} />
+                <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation}/>
               </Segment>}
               <LongTextField name='description' inputRef={this.myDescription}/>
               <Grid.Row>
@@ -135,15 +135,15 @@ class TurtleSighting extends React.Component {
                 <Image src={tags} size="medium" centered/>
               </Grid.Row>
               <SelectField name='numTurtles' inputRef={this.myNumTurtles}/>
-              <Header as="h5" >Please add photos of the animals or area to better help the volunteers.</Header>
-              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange} />
+              <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
+              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>
               <div className="ui hidden divider"></div>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>
           </AutoForm>
           <div className="ui hidden divider"></div>
-        </Grid.Column>
+        </Grid.Column></Container>
       </Grid>
     );
   }
