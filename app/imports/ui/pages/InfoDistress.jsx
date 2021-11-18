@@ -9,7 +9,7 @@ class InfoDistress extends React.Component {
         <Grid textAlign='center' >
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
-              <div className="ui hidden divider"></div>
+              <div className="ui hidden divider"/>
               <Header as="h1">Don&apos;t know what an animal in distress looks like?</Header>
               <p>Click on an animal below to see examples</p>
             </Grid.Column>
