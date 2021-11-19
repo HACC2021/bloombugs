@@ -134,7 +134,7 @@ class TurtleSighting extends React.Component {
               </Segment>}
               <h2>Please provide the following: </h2>
               <p> - Location Description (ex. landmarks or building near by)</p>
-              <p> - Animal Behavior (ex. sleeping, moving, digging)</p>
+              <p> - Animal Behavior (ex. sleeping, moving )</p>
               <p> - If there is more than one animal</p>
               <p> - Interaction between the animal and people/other animals</p>
               <LongTextField name='description' inputRef={this.myDescription} placeholder='Example: A turtle is across from Haleiwa Bowls '/>

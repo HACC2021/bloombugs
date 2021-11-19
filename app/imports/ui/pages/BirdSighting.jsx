@@ -36,7 +36,7 @@ const formSchema = new SimpleSchema({
   description: String,
       markers: {
         type: String,
-        allowedValues: ['Applied Bleach', 'Tags', 'Ventral CC Scar', 'NB Ventral RHF', 'Scar', 'Unknown'],
+        allowedValues: ['Bands', 'Scar', 'Unknown'],
         defaultValue: 'Unknown',
       },
   numPeople: {
@@ -136,8 +136,6 @@ class BirdSighting extends React.Component {
               <TextField name='name' inputRef={this.myName}/>
               <TextField name='phone' decimal={false} inputRef={this.myPhone}/>
               <TextField name='location'/>
-              <NumField name='latitude'/>
-              <NumField name='longitude'/>
               <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation}/>
@@ -145,7 +143,7 @@ class BirdSighting extends React.Component {
 
               <h2>Please provide the following: </h2>
               <p> - Location Description (ex. landmarks or building near by)</p>
-              <p> - Animal Behavior (ex. sleeping, moving, barking)</p>
+              <p> - Animal Behavior (ex. sleeping, moving, eating, nesting )</p>
               <p> - If there is more than one animal</p>
               <p> - Interaction between the animal and people/other animals</p>
               <LongTextField name='description' inputRef={this.myDescription} placeholder='Example: Two baby birds fell from their nest by the campsite at Sherwoods campsite '/>
