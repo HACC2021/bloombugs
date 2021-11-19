@@ -7,7 +7,7 @@ const mnk = '/images/monkSeals.jpg';
 class SealDistress extends React.Component {
   render() {
     return (
-      <Container>
+      <Container style={{ padding: '10px' }}>
         <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
