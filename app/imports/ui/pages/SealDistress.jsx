@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Grid, Header, List, Image, Icon } from 'semantic-ui-react';
+import { Button, Container, Grid, Header, List, Image, Icon, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const mnk = '/images/monkSeals.jpg';
@@ -7,11 +7,10 @@ const mnk = '/images/monkSeals.jpg';
 class SealDistress extends React.Component {
   render() {
     return (
-      <Container>
-        <Grid textAlign='center' container>
+        <Grid textAlign='center' style={{ background: '#87acb5' }} >
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
-              <Image src={mnk} size="medium" centered alt='Hawaiian monk seal and pup'/>
+              <Image src={mnk} size="medium" centered alt='Hawaiian monk seal and pup' />
               <Header as="h3">Hawaiian Monk seals are semi-aquatic, don&apos;t need to stay wet and come ashore
               to bask in the sun. So, lying on the beach is normal behavior for our Monk Seals. If however you notice the following about a seal, please contact us. </Header>
               <Header as="h1">How to Recognize a Seal in Distress</Header>
@@ -24,8 +23,6 @@ class SealDistress extends React.Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
-        <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Header as="h3">Other Conditions of Distress</Header>
@@ -38,8 +35,6 @@ class SealDistress extends React.Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
-        <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Header as="h3" color="red">Please do not approach seals (maintain a distance of 50 feet
@@ -56,16 +51,16 @@ class SealDistress extends React.Component {
                 </a>
               </Button>
               <hr/>
-              <Button inverted size='big' color='blue' icon labelPosition='right'>
+              <Button size='big' color='blue' icon labelPosition='right'>
                 <Icon name='file text'/>
-                <Link to="/sighting">
+                <Link to="/sighting" style={{ color: 'white' }}>
                 Click for Online Form
                 </Link>
               </Button>
+              <div className="ui hidden divider"></div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Container>
     );
   }
 }

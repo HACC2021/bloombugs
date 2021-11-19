@@ -128,7 +128,7 @@ class SealSighting extends React.Component {
               <SelectField name='animalName' inputRef={this.myAnimalName}/>
               <TextField name='name' inputRef={this.myName}/>
               <TextField name='phone' decimal={false} inputRef={this.myPhone}/>
-              <TextField name='location'/>
+              <TextField name='location'placeholder='Enter location or click a pin from the Get Location map'/>
 
               <Button onClick={this.handleShow} type='button'>{this.state.showing ? 'Location set' : 'Get Location'}</Button>
               {this.state.showing && <Segment>

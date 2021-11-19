@@ -22,7 +22,7 @@ class Landing extends React.Component {
                   </List>
                   <p>Clicking on the Kahukai Logo takes you back to this landing page.</p>
                   <Button as={NavLink} className="distressButton" exact to="/distress" color='red' size='big'>Animal in Distress</Button>
-
+                  <div className="ui hidden divider"></div>
                   <Button as={NavLink} className="sightingButton" exact to="/sighting" color='blue' size='big'>Animal Sighting</Button>
                   <p className="clickHere"><br/><br/>Don&apos;t know what an animal in distress looks like?</p>
                   <Button as={NavLink} className="infoButton" exact to="/infodistress">Click Here</Button>
