@@ -1,8 +1,0 @@
-title: Kahukai
-description: A sighting app prototype for HMAR
-google_analytics:
-show_downloads: true
-theme: jekyll-theme-cayman
-
-gems:
-  - jekyll-mentions
