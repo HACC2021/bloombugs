@@ -4,7 +4,7 @@ Hello and welcome to our HACC submission for 2021. Our group name is Bloombugs a
 Higashionna. For our challenge, we selected the HMAR Reporting application and used Meteor, Mongo, Semantic UI/React, and hosted on a Digital Ocean droplet.
 
 ## Instructions
-You can access the current deployment via Digital Ocean at: http://147.182.184.239/. The default temporary admin user for our development purposes is "admin@foo.com" and the password is "changeme." You can also login as the default regular user john@foo.com (password is also "changme"). John can input records, but he cannot see all of the records.
+Our updated deployment can be accessed via http://143.244.187.242/. You can access our original deployment via Digital Ocean at: http://147.182.184.239/. The default temporary admin user for our development purposes is "admin@foo.com" and the password is "changeme." You can also login as the default regular user john@foo.com (password is also "changme"). John can input records, but he cannot see all of the records.
 You can also create your own username and password by clicking on "Login" at the far right and choosing the "Sign up" option.
 
 If you want to download our code and run our app locally, you will want to clone the repository to your local PC or Mac. Make sure that you clone it in an easy to find location. Next, open either your Terminal 
