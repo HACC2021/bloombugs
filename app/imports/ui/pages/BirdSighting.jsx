@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, NumField, LongTextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -20,7 +20,7 @@ const formSchema = new SimpleSchema({
   time: String,
   animalName: {
     type: String,
-    allowedValues: ['Unknown','Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
+    allowedValues: ['Unknown', 'Blackfoot Albatross BFAL', 'Laysan Albatross LAAL', 'Short Tailed Albatross/Albatross unknown type STAL',
       'Brown Booby/Masked Booby BRBO', 'Red Footed Booby/Booby unknown type RFBO', 'Great Frigate GRFR', 'Blue Noddy BGNO',
       'Black Noddy BLNO', 'Brown Noddy/Noddy unknown type BRNO', 'Bonin Petrel BOPE', "Bluwer's Petrel BUPE",
       "Tristram's Storm Petrel/Petrel unknown type TRSP", 'Wedge tail Shearwater WTSH', 'Newell Shearwater NESH',
@@ -34,18 +34,18 @@ const formSchema = new SimpleSchema({
   latitude: Number,
   longitude: Number,
   description: String,
-      markers: {
-        type: String,
-        allowedValues: ['Bands', 'Scar', 'Unknown'],
-        defaultValue: 'Unknown',
-      },
+  markers: {
+    type: String,
+    allowedValues: ['Bands', 'Scar', 'Unknown'],
+    defaultValue: 'Unknown',
+  },
   numPeople: {
     type: String,
     allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
     defaultValue: '0 - 5',
   },
-      image: String,
-    },
+  image: String,
+},
 { tracker: Tracker });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -122,7 +122,7 @@ class BirdSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid centered style={{background: "#87acb5"}}>
+      <Grid centered style={{ background: '#87acb5' }}>
         <Container><Grid.Column>
           <Header as="h2" textAlign="center">Bird Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>

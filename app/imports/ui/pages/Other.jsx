@@ -7,11 +7,11 @@ const dlnr = '/images/DLNR.png';
 class Other extends React.Component {
   render() {
     return (
-      <Grid textAlign='center' style={{background: "#87acb5"}}>
+      <Grid textAlign='center' style={{ background: '#87acb5' }}>
         <Grid.Row verticalAlign='middle'>
           <Grid.Column width={14}>
             <div className="ui hidden divider"></div>
-            <Header as="h2" style={{color: "#f6dcae"}}>Unfortunately HMAR only responds to seals, turtles and birds.</Header>
+            <Header as="h2" style={{ color: '#f6dcae' }}>Unfortunately HMAR only responds to seals, turtles and birds.</Header>
             <Header as="h3">Below are numbers of other organzations that respond to other wildlife </Header>
             <Image src={hwc} size="tiny" centered alt='Hawaii Wildlife Center logo'/>
             <Header as="h3" >Hawaii Wildlife Center:<br/>Bird and Bat Help Line<br/>(808) 884-5000</Header>

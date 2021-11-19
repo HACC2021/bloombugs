@@ -7,7 +7,13 @@ import { Tracker } from 'meteor/tracker';
 import swal from 'sweetalert';
 import { TasksCollection } from '../../api/TasksCollection';
 
-const t1pic = '/images/ShortTail.jpg';
+const bfal = '/images/BlackFootAlbatross.jpg';
+const laal = '/images/Laysan.jpg';
+const stal = '/images/ShortTail-3.jpg';
+const brbo = '/images/Brownbooby.jpg';
+const rfbo = '/images/RedFootedBobby.jpg';
+const wttr = '/images/WhiteTailed.jpg';
+const rttr = '/images/RedTailed.jpg';
 
 const taskSchema = new SimpleSchema({
   text: String }, { tracker: Tracker });
@@ -16,7 +22,7 @@ const bridge = new SimpleSchema2Bridge(taskSchema);
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { animalName:'', location: '', longitude: '', latitude: '' };
+    this.state = { animalName: '', location: '', longitude: '', latitude: '' };
     this.clickt1 = this.clickt1.bind(this);
     this.schema = new SimpleSchema({
       text: String,
@@ -46,23 +52,61 @@ class TaskForm extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid container centered>
-        <AutoForm
-          ref={ref => { fRef = ref; }}
-          schema={bridge}
-          onSubmit={data => this.submit(data, fRef)}
-          model={this.state}
-          // onChangeModel={model => console.log(model)}
-        >
+      <AutoForm
+        ref={ref => { fRef = ref; }}
+        schema={bridge}
+        onSubmit={data => this.submit(data, fRef)}
+        model={this.state}
+        // onChangeModel={model => console.log(model)}
+      >
+        <Grid centered container>
           <Grid.Row>
-            <Segment>
-              <Image
-                src={t1pic}
-                size='small'
-                alt='task1'
-                onClick={this.clickt1}
-              />
-            </Segment>
+            <Image
+              src={laal}
+              size='small'
+              alt='Laysan Albatross'
+              onClick={this.clickt1}
+            />
+            <Image
+              src={bfal}
+              size='small'
+              alt='Black Footed Albatross'
+              onClick={this.clickt1}
+            />
+            <Image
+              src={stal}
+              size='small'
+              alt='Short Tailed Albatross'
+              onClick={this.clickt1}
+            />
+          </Grid.Row>
+          <Grid.Row>
+            <Image
+              src={brbo}
+              size='small'
+              alt='Brown Booby'
+              onClick={this.clickt1}
+            />
+            <Image
+              src={rfbo}
+              size='small'
+              alt='Red Footed Booby'
+              onClick={this.clickt1}
+            />
+          </Grid.Row>
+          <Grid.Row>
+            <Image
+              src={wttr}
+              size='small'
+              alt='White Tail Tropicbird'
+              onClick={this.clickt1}
+            />
+            <Image
+              src={rttr}
+              size='small'
+              alt='Red Tail Tropicbird'
+              onClick={this.clickt1}
+            />
           </Grid.Row>
           <Segment>
             <TextField
@@ -71,8 +115,8 @@ class TaskForm extends React.Component {
             <ErrorsField/>
             <SubmitField value='Submit'/>
           </Segment>
-        </AutoForm>
-      </Grid>
+        </Grid>
+      </AutoForm>
     );
   }
 }

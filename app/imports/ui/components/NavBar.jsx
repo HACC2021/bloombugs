@@ -12,7 +12,7 @@ const kahukai = '/images/Kahukai_transparent.png';
 class NavBar extends React.Component {
   render() {
     return (
-      <Menu attached="top" borderless id="nav" className="ui stackable menu" style={{background: "white" , border: "none"}}>
+      <Menu attached="top" borderless id="nav" className="ui stackable menu" style={{ background: 'white', border: 'none' }}>
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Image src={kahukai} size='small' alt='Kahukai app logo'/>
         </Menu.Item>
@@ -35,7 +35,7 @@ class NavBar extends React.Component {
           <Menu.Item as={NavLink} activeClassName="active" exact to="/turtleadminlist" key='turtleadminlist'><Header as="h4">Turtle Sightings</Header></Menu.Item>
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/distressadminlist" key='distressadminlist'><Header as="h4">DISTRESS Sightings</Header></Menu.Item>
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/distressadminlist" key='distressadminlist'><Header as="h4">Distress Sightings</Header></Menu.Item>
         ) : ''}
         <Menu.Item position="right">
           {this.props.currentUser === '' ? (

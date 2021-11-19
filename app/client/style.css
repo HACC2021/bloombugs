@@ -1,11 +1,14 @@
 #landing-page {
   padding-top: 10%;
-  background-color: #CCE2FF;
+  padding-bottom: 20%;
+  color: white;
+}
+.background {
   background: url('https://h-mar.org/wp-content/uploads/2019/04/shutterstock_1079402375-min.jpg') no-repeat center center fixed;
   background-size: cover;
-  padding-bottom: 20%;
-
-  color: white;
+}
+.transparent-background {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .logo {
   padding-top: 20px;
@@ -15,5 +18,7 @@
   padding-top: 20px;
   padding-bottom: 10px;
 }
-
+.bold {
+  font-weight: bold;
+}
 

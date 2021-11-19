@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Segment, Header, Image, Button, Icon, Container } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField, NumField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Button, Icon, Container } from 'semantic-ui-react';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -17,15 +17,16 @@ const formSchema = new SimpleSchema({
   time: String,
   name: String,
   phone: String,
-      animal: {
-        type: String,
-        allowedValues: ['Seal', 'Turtle', 'Bird' ],
-        defaultValue: 'Seal',
-      },
+  animal: {
+    type: String,
+    allowedValues: ['Seal', 'Turtle', 'Bird'],
+    defaultValue: 'Seal',
+  },
   location: String,
   latitude: Number,
   longitude: Number,
   description: String,
+  image: String,
 },
 { tracker: Tracker });
 
@@ -40,6 +41,7 @@ class DistressForm extends React.Component {
     this.myName = React.createRef();
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
+    this.myImage = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -56,6 +58,7 @@ class DistressForm extends React.Component {
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ animal: this.myAnimal.current.value });
     this.setState({ description: this.myDescription.current.value });
+    this.setState({ image: this.myImage.current.value });
   }
 
   handleShow() {
@@ -79,9 +82,9 @@ class DistressForm extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animal, name, phone, location, latitude, longitude, description } = data;
+    const { date, time, animal, name, phone, location, latitude, longitude, description, image } = data;
     const owner = name;
-    DistressReport.collection.insert({ date, time, animal, name, phone, location, latitude, longitude, description, owner },
+    DistressReport.collection.insert({ date, time, animal, name, phone, location, latitude, longitude, description, image, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -96,10 +99,10 @@ class DistressForm extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid centered style={{background: "#87acb5"}}>
+      <Grid centered style={{ background: '#87acb5' }}>
         <Container><Grid.Column>
           <div className="ui hidden divider"></div>
-          <Header as="h2" textAlign="center" style={{color: "white"}}>Distress Form</Header>
+          <Header as="h2" textAlign="center" style={{ color: 'white' }}>Distress Form</Header>
           <Button animated size='big' color='red' className='fluid button'>
             <Button.Content visible>Click for Phone Call</Button.Content>
             <a href="tel:[888-256-9840]">
@@ -124,7 +127,7 @@ class DistressForm extends React.Component {
               </Segment>}
               <LongTextField name='description' inputRef={this.myDescription}/>
               <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
-              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>
+              <TextField name='image' inputRef={this.myImage}/>
               <div className="ui hidden divider"></div>
               <SubmitField value='Submit'/>
               <ErrorsField/>

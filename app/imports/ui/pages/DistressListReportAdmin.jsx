@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { DistressTable } from './DistressTable';
@@ -17,7 +17,7 @@ class DistressListReportAdmin extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <div className="ui fluid vertical menu">
+      <div className="ui fluid vertical menu">
         <Header as="h2" textAlign="center">Distress Animals</Header>
         <DistressTable reports={this.props.reports}/>
       </div>

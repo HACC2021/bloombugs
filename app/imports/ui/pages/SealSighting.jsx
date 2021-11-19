@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -41,6 +41,7 @@ const formSchema = new SimpleSchema({
     allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
     defaultValue: '0 - 5',
   },
+  image: String,
 },
 { tracker: Tracker });
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -56,6 +57,7 @@ class SealSighting extends React.Component {
     this.myDescription = React.createRef();
     this.myNumPeople = React.createRef();
     this.myMarkers = React.createRef();
+    this.myImage = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -71,8 +73,9 @@ class SealSighting extends React.Component {
     this.setState({ name: this.myName.current.value });
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ description: this.myDescription.current.value });
-    this.setState({ numPeople: this.myNumPeople.current.value });
     this.setState({ markers: this.myMarkers.current.value });
+    this.setState({ numPeople: this.myNumPeople.current.value });
+    this.setState({ image: this.myImage.current.value });
   }
 
   handleShow() {
@@ -97,9 +100,9 @@ class SealSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image } = data;
     const owner = name;
-    SealReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
+    SealReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -114,10 +117,10 @@ class SealSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid centered style={{background: "#87acb5"}}>
+      <Grid centered style={{ background: '#87acb5' }}>
         <Container><Grid.Column>
           <div className="ui hidden divider"></div>
-          <Header as="h2" textAlign="center" style={{color: "white"}}>Seal Sighting Form</Header>
+          <Header as="h2" textAlign="center" style={{ color: 'white' }}>Seal Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
               <TextField name='date' type='date' inputRef={this.myDate}/>
@@ -141,24 +144,22 @@ class SealSighting extends React.Component {
               <LongTextField name='description' inputRef={this.myDescription} placeholder='Example: A seal is sleeping on the beach by Hilton Hawaiin Village'/>
 
               <Header as="h5" textAlign="center">Applied Bleach</Header>
-                <Image src={bleach} size="medium" centered/>
+              <Image src={bleach} size="medium" centered/>
 
-                <Header as="h5" textAlign="center">Tags</Header>
-                <Image src={tags} size="medium" centered/>
+              <Header as="h5" textAlign="center">Tags</Header>
+              <Image src={tags} size="medium" centered/>
 
+              <Header as="h5" textAlign="center">CC Scar</Header>
+              <Image src={ccScar} size="medium" centered/>
 
-                <Header as="h5" textAlign="center">CC Scar</Header>
-                <Image src={ccScar} size="medium" centered/>
-
-
-                <Header as="h5" textAlign="center">NB Ventral</Header>
-                <Image src={NB} size="medium" centered/>
+              <Header as="h5" textAlign="center">NB Ventral</Header>
+              <Image src={NB} size="medium" centered/>
 
               <div className="ui hidden divider"></div>
               <SelectField name='markers' inputRef={this.myMarkers}/>
               <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
-              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>
+              <TextField name='image' inputRef={this.myImage}/>
               <div className="ui hidden divider"></div>
               <SubmitField value='Submit'/>
               <ErrorsField/>

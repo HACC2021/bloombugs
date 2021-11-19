@@ -24,7 +24,7 @@ class BirdReportsCollection {
       description: String,
       markers: {
         type: String,
-        allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
+        allowedValues: ['Bands', 'Scar', 'Unknown'],
         defaultValue: 'Unknown',
       },
       numPeople: {

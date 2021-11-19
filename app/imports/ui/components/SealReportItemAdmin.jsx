@@ -17,7 +17,9 @@ class SealReportItemAdmin extends React.Component {
         <Table.Cell>{this.props.report.latitude}</Table.Cell>
         <Table.Cell>{this.props.report.longitude}</Table.Cell>
         <Table.Cell>{this.props.report.description}</Table.Cell>
+        <Table.Cell>{this.props.report.markers}</Table.Cell>
         <Table.Cell>{this.props.report.numPeople}</Table.Cell>
+        <Table.Cell>{this.props.report.image}</Table.Cell>
         <Table.Cell>
           <Link to={`/edit/${this.props.report._id}`}>Edit</Link>
         </Table.Cell>
@@ -37,9 +39,10 @@ SealReportItemAdmin.propTypes = {
     location: PropTypes.string,
     latitude: PropTypes.number,
     longitude: PropTypes.number,
-    hindFlipperTagCombo: PropTypes.string,
     description: PropTypes.string,
+    markers: PropTypes.string,
     numPeople: PropTypes.string,
+    image: PropTypes.string,
     _id: PropTypes.string,
   }),
 };

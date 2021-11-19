@@ -3,7 +3,7 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /**
- * The ReportsCollection. It encapsulates state and variable values for each report.
+ * The ReportsCollection. This was deprecated but we are saving it for now as a template for future reference. As the EditReport.jsx is tied to this and we wish to implement editing capabilities in the future.
  */
 class ReportsCollection {
   constructor() {

@@ -17,6 +17,7 @@ class DistressReportItemAdmin extends React.Component {
         <Table.Cell>{this.props.report.latitude}</Table.Cell>
         <Table.Cell>{this.props.report.longitude}</Table.Cell>
         <Table.Cell>{this.props.report.description}</Table.Cell>
+        <Table.Cell>{this.props.report.image}</Table.Cell>
         <Table.Cell>
           <Link to={`/edit/${this.props.report._id}`}>Edit</Link>
         </Table.Cell>
@@ -37,6 +38,7 @@ DistressReportItemAdmin.propTypes = {
     latitude: PropTypes.number,
     longitude: PropTypes.number,
     description: PropTypes.string,
+    image: PropTypes.string,
     _id: PropTypes.string,
   }),
 };

@@ -29,9 +29,10 @@ class TurtleReportsCollection {
       },
       numPeople: {
         type: String,
-        allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
+        allowedValues: ['0 - 5', '5 - 10', ' 10+'],
         defaultValue: '0 - 5',
       },
+      image: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

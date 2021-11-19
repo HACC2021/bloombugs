@@ -14,6 +14,7 @@ const columns = [
   { name: 'Latitude', selector: row => row.latitude, sortable: true },
   { name: 'Longitude', selector: row => row.longitude, sortable: true },
   { name: 'Description', selector: row => row.description, sortable: true },
+  { name: 'Markers', selector: row => row.markers, sortable: true },
   { name: 'Number of People', selector: row => row.numPeople, sortable: true },
   { name: 'Image', selector: row => row.image },
 ];

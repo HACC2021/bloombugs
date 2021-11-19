@@ -27,7 +27,7 @@ Meteor.publish(Report.adminPublicationName, function () {
 
 Meteor.publish(Locations.userPublicationName, function () {
 
-    return Locations.collection.find();
+  return Locations.collection.find();
 
 });
 

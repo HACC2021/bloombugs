@@ -8,13 +8,13 @@ class Distress extends React.Component {
   render() {
     return (
       <Grid id='distress' textAlign='center'>
-        <Grid.Row verticalAlign='middle' style={{backgroundImage: `url(${Background})`,
+        <Grid.Row verticalAlign='middle' style={{ backgroundImage: `url(${Background})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover', backgroundPosition: 'center',
-          paddingBottom: "30%"}}>
+          paddingBottom: '30%' }}>
           <Grid.Column width={14}>
             <div className="ui hidden divider"></div>
-            <Header as="h3" style={{color: "white"}}>If the animal is in distress, it is preferable to call HMAR
+            <Header as="h3" style={{ color: 'white' }}>If the animal is in distress, it is preferable to call HMAR
             so they can attend to the animal as soon as possible (888) 256-9840. However, if you cannot call, please fill out the form</Header>
             <Button animated size='big' color='red'>
               <Button.Content visible>Click for Phone Call</Button.Content>
@@ -27,11 +27,11 @@ class Distress extends React.Component {
             <hr/>
             <Button size='big' color='green' icon labelPosition='right'>
               <Icon name='file text'/>
-              <Link to="/distressform" style={{color: "white"}}>
+              <Link to="/distressform" style={{ color: 'white' }}>
               Click for Online Form
               </Link>
             </Button>
-            <div className="ui hidden divider" style={{color: "white", paddingBottom: "10%"}}></div>
+            <div className="ui hidden divider" style={{ color: 'white', paddingBottom: '10%' }}/>
           </Grid.Column>
         </Grid.Row>
       </Grid>

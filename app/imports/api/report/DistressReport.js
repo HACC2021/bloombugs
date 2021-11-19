@@ -17,7 +17,7 @@ class DistressReportsCollection {
       time: String,
       animal: {
         type: String,
-        allowedValues: ['Seal', 'Turtle', 'Bird' ],
+        allowedValues: ['Seal', 'Turtle', 'Bird'],
         defaultValue: 'Seal',
       },
       name: String,
@@ -26,6 +26,7 @@ class DistressReportsCollection {
       latitude: Number,
       longitude: Number,
       description: String,
+      image: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
@@ -35,6 +36,5 @@ class DistressReportsCollection {
     this.adminPublicationName = `${this.name}.publication.admin`;
   }
 }
-
 
 export const DistressReport = new DistressReportsCollection();

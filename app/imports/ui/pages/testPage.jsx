@@ -8,8 +8,8 @@ class TestPage extends React.Component {
 
   render() {
     return (
-      <Container id='testPage'>
-        <Header as="h1">Test OnClick Image</Header>
+      <Container id='testPage' textAlign='center'>
+        <Header as="h1">Hawaiian Sea Birds</Header>
         <TaskForm/>
         <ul>
           {tasks.map(task => <Task key={task._id} task={task}/>)}

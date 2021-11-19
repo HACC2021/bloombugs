@@ -24,7 +24,7 @@ class SealReportsCollection {
       description: String,
       markers: {
         type: String,
-        allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
+        allowedValues: ['Applied Bleach', 'Tags', 'Ventral CC Scar', 'NB Ventral RHF', 'Scar', 'Unknown'],
         defaultValue: 'Unknown',
       },
       numPeople: {
@@ -32,6 +32,7 @@ class SealReportsCollection {
         allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
         defaultValue: '0 - 5',
       },
+      image: String,
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

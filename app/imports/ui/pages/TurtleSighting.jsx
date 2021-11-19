@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Segment, Header, Image, Button, Container } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField, NumField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -29,16 +29,17 @@ const formSchema = new SimpleSchema({
   latitude: Number,
   longitude: Number,
   description: String,
-      markers: {
-        type: String,
-        allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
-        defaultValue: 'Unknown',
-      },
-      numPeople: {
-        type: String,
-        allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
-        defaultValue: '0 - 5',
-      },
+  markers: {
+    type: String,
+    allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
+    defaultValue: 'Unknown',
+  },
+  numPeople: {
+    type: String,
+    allowedValues: ['0 - 5', '5 - 10', ' 10+'],
+    defaultValue: '0 - 5',
+  },
+  image: String,
 },
 { tracker: Tracker });
 
@@ -56,6 +57,7 @@ class TurtleSighting extends React.Component {
     this.myDescription = React.createRef();
     this.myNumPeople = React.createRef();
     this.myMarkers = React.createRef();
+    this.myImage = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -73,6 +75,7 @@ class TurtleSighting extends React.Component {
     this.setState({ description: this.myDescription.current.value });
     this.setState({ numPeople: this.myNumPeople.current.value });
     this.setState({ markers: this.myMarkers.current.value });
+    this.setState({ image: this.myImage.current.value });
 
   }
 
@@ -97,9 +100,9 @@ class TurtleSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image } = data;
     const owner = name;
-    TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
+    TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -114,11 +117,11 @@ class TurtleSighting extends React.Component {
   render() {
     let fRef = null;
     return (
-      <Grid centered style={{background: "#87acb5"}}>
+      <Grid centered style={{ background: '#87acb5' }}>
         <Container><Grid.Column>
           <div className="ui hidden divider"></div>
           <div className="ui hidden divider"></div>
-          <Header as="h2" textAlign="center" style={{color: "white"}}>Turtle Sighting Form</Header>
+          <Header as="h2" textAlign="center" style={{ color: 'white' }}>Turtle Sighting Form</Header>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} model={this.state}>
             <Segment>
               <Header textAlign='center'> Contact Info</Header>
@@ -151,7 +154,7 @@ class TurtleSighting extends React.Component {
               <SelectField name='markers' inputRef={this.myMarkers}/>
               <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
-              <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>
+              <TextField name='image' inputRef={this.myImage}/>
               <div className="ui hidden divider"></div>
               <SubmitField value='Submit'/>
               <ErrorsField/>
