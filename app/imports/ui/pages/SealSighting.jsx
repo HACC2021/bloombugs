@@ -22,18 +22,18 @@ const formSchema = new SimpleSchema({
   time: String,
   animalName: {
     type: String,
-    allowedValues: ['Adult Hawaiian Monk Seal', 'Baby Hawaiian Monk Seal', 'Hawaiian Monk seal with pup(s)'],
-    defaultValue: 'Adult Hawaiian Monk Seal',
+    allowedValues: ['Adult Hawaiian Monk Seal', 'Baby Hawaiian Monk Seal', 'Hawaiian Monk seal with pup(s)', 'Unknown'],
+    defaultValue: 'Unknown',
   },
   name: String,
   phone: String,
   location: String,
   latitude: Number,
   longitude: Number,
-  hindFlipperTagCombo: {
+  markers: {
     type: String,
-    allowedValues: ['Red Tag only', 'Night (Black) only', 'Gray + Violet', 'Red + Pink', 'Blue + Dark Blue', 'Green + Lime', 'Tan + White', 'Yellow + Amber + Turquoise', 'Unknown colors', 'No tags'],
-    defaultValue: 'Red Tag only',
+    allowedValues: ['Applied Bleach', 'Tags', 'Ventral CC Scar', 'NB Ventral RHF', 'Scar', 'Unknown'],
+    defaultValue: 'Unknown',
   },
   description: String,
   numPeople: {
@@ -55,7 +55,7 @@ class SealSighting extends React.Component {
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
     this.myNumPeople = React.createRef();
-    this.myHindFlipperTagCombo = React.createRef();
+    this.myMarkers = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -72,7 +72,7 @@ class SealSighting extends React.Component {
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ description: this.myDescription.current.value });
     this.setState({ numPeople: this.myNumPeople.current.value });
-    this.setState({ hindFlipperTagCombo: this.myHindFlipperTagCombo.current.value });
+    this.setState({ markers: this.myMarkers.current.value });
   }
 
   handleShow() {
@@ -97,9 +97,9 @@ class SealSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, hindFlipperTagCombo, numPeople } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
     const owner = Meteor.user().username;
-    SealReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, hindFlipperTagCombo, numPeople, owner },
+    SealReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -131,27 +131,31 @@ class SealSighting extends React.Component {
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation}/>
               </Segment>}
-              <LongTextField name='description' inputRef={this.myDescription} placeholder='Please provide a description of the situation and location. Example: statues or restuarnts near by, more than one animal being sighted, etc'/>
-              <Grid.Row>
-                <Header as="h5" textAlign="center">Applied Bleach</Header>
-                <Image src={bleach} size="medium" centered/>
-              </Grid.Row>
               <div className="ui hidden divider"></div>
-              <Grid.Row>
+
+              <h2>Please provide the following: </h2>
+              <p> - Location Description (ex. landmarks or building near by)</p>
+              <p> - Animal Behavior (ex. sleeping, moving, barking)</p>
+              <p> - If there is more than one animal</p>
+              <p> - Interaction between the animal and people/other animals</p>
+              <LongTextField name='description' inputRef={this.myDescription} placeholder='Example: A seal is sleeping on the beach by Hilton Hawaiin Village'/>
+
+              <Header as="h5" textAlign="center">Applied Bleach</Header>
+                <Image src={bleach} size="medium" centered/>
+
                 <Header as="h5" textAlign="center">Tags</Header>
                 <Image src={tags} size="medium" centered/>
-              </Grid.Row>
-              <div className="ui hidden divider"></div>
-              <Grid.Column>
+
+
                 <Header as="h5" textAlign="center">CC Scar</Header>
                 <Image src={ccScar} size="medium" centered/>
-              </Grid.Column>
-              <div className="ui hidden divider"></div>
-              <Grid.Column>
+
+
                 <Header as="h5" textAlign="center">NB Ventral</Header>
                 <Image src={NB} size="medium" centered/>
-              </Grid.Column>
-              <SelectField name='hindFlipperTagCombo' inputRef={this.myHindFlipperTagCombo}/>
+
+              <div className="ui hidden divider"></div>
+              <SelectField name='markers' inputRef={this.myMarkers}/>
               <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <Header as="h5">Please add photos of the animals or area to better help the volunteers.</Header>
               <input type="file" id="file" style={{ display: "hidden" }} onChange={this.onChange}/>

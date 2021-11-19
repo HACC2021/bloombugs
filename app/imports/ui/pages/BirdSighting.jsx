@@ -34,6 +34,11 @@ const formSchema = new SimpleSchema({
   latitude: Number,
   longitude: Number,
   description: String,
+      markers: {
+        type: String,
+        allowedValues: ['Applied Bleach', 'Tags', 'Ventral CC Scar', 'NB Ventral RHF', 'Scar', 'Unknown'],
+        defaultValue: 'Unknown',
+      },
   numPeople: {
     type: String,
     allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
@@ -55,6 +60,7 @@ class BirdSighting extends React.Component {
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
     this.myNumPeople = React.createRef();
+    this.myMarkers = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
@@ -71,6 +77,8 @@ class BirdSighting extends React.Component {
     this.setState({ phone: this.myPhone.current.value });
     this.setState({ description: this.myDescription.current.value });
     this.setState({ numPeople: this.myNumPeople.current.value });
+    this.setState({ markers: this.myMarkers.current.value });
+
   }
 
   handleShow() {
@@ -94,9 +102,9 @@ class BirdSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, numPeople } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
     const owner = Meteor.user().username;
-    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numPeople, owner },
+    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -121,6 +129,7 @@ class BirdSighting extends React.Component {
               </Grid.Row>
             </Segment>
             <Segment>
+              // Info Form
               <TextField name='date' type='date' inputRef={this.myDate}/>
               <TextField name='time' type='time' inputRef={this.myTime}/>
               <SelectField name='animalName' inputRef={this.myAnimalName}/>
@@ -133,7 +142,15 @@ class BirdSighting extends React.Component {
               {this.state.showing && <Segment>
                 <ReactSVG src="/images/Oahu_NS_all.svg" onClick={this.handleLocation}/>
               </Segment>}
-              <LongTextField name='description' inputRef={this.myDescription}/>
+
+              <h2>Please provide the following: </h2>
+              <p> - Location Description (ex. landmarks or building near by)</p>
+              <p> - Animal Behavior (ex. sleeping, moving, barking)</p>
+              <p> - If there is more than one animal</p>
+              <p> - Interaction between the animal and people/other animals</p>
+              <LongTextField name='description' inputRef={this.myDescription} placeholder='Example: Two baby birds fell from their nest by the campsite at Sherwoods campsite '/>
+
+              <SelectField name='markers' inputRef={this.myMarkers}/>
               <SelectField name='numPeople' inputRef={this.myNumPeople}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>

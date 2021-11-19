@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader } from 'semantic-ui-react';
+import { Container, Header, Loader, Menu } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { BirdTable } from './BirdTable';
@@ -17,10 +17,10 @@ class BirdListReportAdmin extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+        <Menu>
         <Header as="h2" textAlign="center">Seabird Reports</Header>
         <BirdTable reports={this.props.reports}/>
-      </Container>
+        </Menu>
     );
   }
 }

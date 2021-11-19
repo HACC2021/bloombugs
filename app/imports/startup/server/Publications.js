@@ -25,10 +25,9 @@ Meteor.publish(Report.adminPublicationName, function () {
 });
 
 Meteor.publish(Locations.userPublicationName, function () {
-  if (this.userId) {
+
     return Locations.collection.find();
-  }
-  return this.ready();
+
 });
 
 Meteor.publish(BirdReport.userPublicationName, function () {
