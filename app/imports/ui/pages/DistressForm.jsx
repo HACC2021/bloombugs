@@ -8,7 +8,7 @@ import SimpleSchema from 'simpl-schema';
 import { ReactSVG } from 'react-svg';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Tracker } from 'meteor/tracker';
-import { TurtleReport } from '../../api/report/TurtleReport';
+import { DistressReport } from '../../api/report/DistressReport';
 import { Locations } from '../../api/Locations';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -43,10 +43,10 @@ class DistressForm extends React.Component {
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
     this.handleLocation = this.handleLocation.bind(this);
-    this.animal = React.createRef();
+    this.myAnimal = React.createRef();
     this.handleShow = this.handleShow.bind(this);
     this.preserveValues = this.preserveValues.bind(this);
-    TurtleReport.collection.attachSchema(formSchema);
+    DistressReport.collection.attachSchema(formSchema);
   }
 
   preserveValues() {
@@ -54,6 +54,7 @@ class DistressForm extends React.Component {
     this.setState({ time: this.myTime.current.value });
     this.setState({ name: this.myName.current.value });
     this.setState({ phone: this.myPhone.current.value });
+    this.setState({ animal: this.myAnimal.current.value });
     this.setState({ description: this.myDescription.current.value });
   }
 
@@ -78,9 +79,9 @@ class DistressForm extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, numTurtles } = data;
-    const owner = Meteor.user().username;
-    TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, numTurtles, owner },
+    const { date, time, animal, name, phone, location, latitude, longitude, description } = data;
+    const owner = name;
+    DistressReport.collection.insert({ date, time, animal, name, phone, location, latitude, longitude, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

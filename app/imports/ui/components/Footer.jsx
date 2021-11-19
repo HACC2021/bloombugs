@@ -12,7 +12,7 @@ const kahukai = '/images/Kahukai_transparent.png';
 class Footer extends React.Component {
   render() {
     return (
-      <Menu attached="bottom" borderless className="ui stackable menu" style={{background: "white" , padding: "5px"}} centered>
+      <Menu attached="bottom" borderless className="ui stackable menu" style={{background: "white" , padding: "5px"}} >
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Image src='https://www.mauibath.com/wp-content/uploads/2019/10/596998840197290025-300x300.png' width='60px' className="logo"/>
         </Menu.Item>

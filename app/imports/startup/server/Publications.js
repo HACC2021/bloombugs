@@ -5,6 +5,7 @@ import { Locations } from '../../api/Locations';
 import { BirdReport } from '../../api/report/BirdReport';
 import { SealReport } from '../../api/report/SealReport';
 import { TurtleReport } from '../../api/report/TurtleReport';
+import { DistressReport } from '../../api/report/DistressReport';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise publish nothing.
 Meteor.publish(Report.userPublicationName, function () {
@@ -69,6 +70,21 @@ Meteor.publish(TurtleReport.userPublicationName, function () {
 Meteor.publish(TurtleReport.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return TurtleReport.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(DistressReport.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return DistressReport.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(DistressReport.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return DistressReport.collection.find();
   }
   return this.ready();
 });

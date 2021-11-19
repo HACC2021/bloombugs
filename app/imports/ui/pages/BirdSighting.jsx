@@ -44,7 +44,8 @@ const formSchema = new SimpleSchema({
     allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
     defaultValue: '0 - 5',
   },
-},
+      image: String,
+    },
 { tracker: Tracker });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -60,6 +61,7 @@ class BirdSighting extends React.Component {
     this.myPhone = React.createRef();
     this.myDescription = React.createRef();
     this.myNumPeople = React.createRef();
+    this.myImage = React.createRef();
     this.myMarkers = React.createRef();
     this.state = { showing: false, latitude: '',
       longitude: '', location: '', date: '' };
@@ -78,6 +80,7 @@ class BirdSighting extends React.Component {
     this.setState({ description: this.myDescription.current.value });
     this.setState({ numPeople: this.myNumPeople.current.value });
     this.setState({ markers: this.myMarkers.current.value });
+    this.setState({ image: this.myImage.current.value });
 
   }
 
@@ -102,9 +105,9 @@ class BirdSighting extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
+    const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image } = data;
     const owner = name;
-    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
+    BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, image, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -129,7 +132,7 @@ class BirdSighting extends React.Component {
               </Grid.Row>
             </Segment>
             <Segment>
-              // Info Form
+
               <TextField name='date' type='date' inputRef={this.myDate}/>
               <TextField name='time' type='time' inputRef={this.myTime}/>
               <SelectField name='animalName' inputRef={this.myAnimalName}/>
@@ -150,6 +153,7 @@ class BirdSighting extends React.Component {
 
               <SelectField name='markers' inputRef={this.myMarkers}/>
               <SelectField name='numPeople' inputRef={this.myNumPeople}/>
+              <TextField name='image' inputRef={this.myImage}/>
               <SubmitField value='Submit'/>
               <ErrorsField/>
             </Segment>

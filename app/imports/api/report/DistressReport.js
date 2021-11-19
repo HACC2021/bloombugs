@@ -25,7 +25,6 @@ class DistressReportsCollection {
       location: String,
       latitude: Number,
       longitude: Number,
-      hindFlipperTagCombo: String,
       description: String,
       owner: String,
     }, { tracker: Tracker });
@@ -37,8 +36,5 @@ class DistressReportsCollection {
   }
 }
 
-/**
- * The singleton instance of the ReportsCollection.
- * @type {SealReportsCollection}
- */
+
 export const DistressReport = new DistressReportsCollection();

@@ -21,9 +21,7 @@ class SealReportsCollection {
       location: String,
       latitude: Number,
       longitude: Number,
-      hindFlipperTagCombo: String,
       description: String,
-      numSeals: String,
       markers: {
         type: String,
         allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],

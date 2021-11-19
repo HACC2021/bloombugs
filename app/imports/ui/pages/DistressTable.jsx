@@ -7,15 +7,13 @@ import '../../../client/dataTables.css';
 const columns = [
   { name: 'Date', selector: row => row.date, sortable: true },
   { name: 'Time', selector: row => row.time, sortable: true },
-  { name: 'Animal Name', selector: row => row.animalName, sortable: true },
+  { name: 'Animal', selector: row => row.animal, sortable: true },
   { name: 'Name', selector: row => row.name, sortable: true },
   { name: 'Phone', selector: row => row.phone, sortable: true },
   { name: 'Location', selector: row => row.location, sortable: true },
   { name: 'Latitude', selector: row => row.latitude, sortable: true },
   { name: 'Longitude', selector: row => row.longitude, sortable: true },
-  { name: 'Hind Flipper Tag Combo', selector: row => row.hindFlipperTagCombo, sortable: true },
   { name: 'Description', selector: row => row.description, sortable: true },
-  { name: 'Number of Seals', selector: row => row.numSeals, sortable: true },
 ];
 
 export const DistressTable = (props) => {

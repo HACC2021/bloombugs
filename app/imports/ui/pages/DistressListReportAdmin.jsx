@@ -17,10 +17,10 @@ class DistressListReportAdmin extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
-        <Header as="h2" textAlign="center">Hawaiian Monk Seal Reports</Header>
-        <SealTable reports={this.props.reports}/>
-      </Container>
+        <div className="ui fluid vertical menu">
+        <Header as="h2" textAlign="center">Distress Animals</Header>
+        <DistressTable reports={this.props.reports}/>
+      </div>
     );
   }
 }
