@@ -36,7 +36,7 @@ const formSchema = new SimpleSchema({
   },
   numPeople: {
     type: String,
-    allowedValues: ['0 - 5', '5 - 10', ' 10+'],
+    allowedValues: ['0 - 5', '5 - 10', '10+'],
     defaultValue: '0 - 5',
   },
   image: String,
