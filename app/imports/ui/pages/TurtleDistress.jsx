@@ -9,6 +9,7 @@ class TurtleDistress extends React.Component {
     return (
 
         <Grid textAlign='center' style={{ background: '#87acb5' }}>
+
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Image src={Cm} size="medium" centered alt='green sea turtle'/>
