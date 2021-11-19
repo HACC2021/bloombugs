@@ -7,8 +7,8 @@ const wtsh = '/images/shearwater.jpg';
 class BirdDistress extends React.Component {
   render() {
     return (
-      <Container>
-        <Grid textAlign='center' container>
+
+        <Grid textAlign='center' style={{ background: '#87acb5' }}>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Image src={wtsh} size="medium" centered alt='wedge-tailed shearwater'/>
@@ -27,8 +27,6 @@ class BirdDistress extends React.Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
-        <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Header as="h3">Other Conditions of Distress</Header>
@@ -43,8 +41,6 @@ class BirdDistress extends React.Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
-        <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Header as="h3">If a seabird appears to be any of the above or is deceased, please contact HMAR via the phone or our online form.</Header>
@@ -57,16 +53,16 @@ class BirdDistress extends React.Component {
                 </a>
               </Button>
               <hr/>
-              <Button inverted size='big' color='blue' icon labelPosition='right'>
+              <Button size='big' color='blue' icon labelPosition='right'>
                 <Icon name='file text'/>
-                <Link to="/sighting">
+                <Link to="/sighting" style={{ color: 'white' }}>
                 Click for Online Form
                 </Link>
               </Button>
+              <div className="ui hidden divider"></div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Container>
     );
   }
 }

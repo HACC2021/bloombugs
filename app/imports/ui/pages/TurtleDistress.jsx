@@ -7,8 +7,9 @@ const Cm = '/images/greenSeaTurtle.jpg';
 class TurtleDistress extends React.Component {
   render() {
     return (
-      <Container>
-        <Grid textAlign='center' container>
+
+        <Grid textAlign='center' style={{ background: '#87acb5' }}>
+
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Image src={Cm} size="medium" centered alt='green sea turtle'/>
@@ -24,8 +25,6 @@ class TurtleDistress extends React.Component {
               </List>
             </Grid.Column>
           </Grid.Row>
-        </Grid>
-        <Grid textAlign='center' container>
           <Grid.Row verticalAlign='middle'>
             <Grid.Column width={14}>
               <Header as="h3" color="red">Please do not approach the turtle (maintain a distance of 10 feet or 3 meters). This is for your safety, the turtle&apos;s safety and is in accordance with federal and state laws.</Header>
@@ -39,16 +38,16 @@ class TurtleDistress extends React.Component {
                 </a>
               </Button>
               <hr/>
-              <Button inverted size='big' color='blue' icon labelPosition='right'>
+              <Button size='big' color='blue' icon labelPosition='right'>
                 <Icon name='file text'/>
-                <Link to="/sighting">
+                <Link to="/sighting" style={{ color: 'white' }}>
                 Click for Online Form
                 </Link>
               </Button>
+              <div className="ui hidden divider"></div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-      </Container>
     );
   }
 }
