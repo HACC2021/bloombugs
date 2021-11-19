@@ -24,6 +24,16 @@ class SealReportsCollection {
       hindFlipperTagCombo: String,
       description: String,
       numSeals: String,
+      markers: {
+        type: String,
+        allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
+        defaultValue: 'Unknown',
+      },
+      numPeople: {
+        type: String,
+        allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
+        defaultValue: '0 - 5',
+      },
       owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

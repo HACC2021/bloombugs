@@ -20,8 +20,8 @@ const formSchema = new SimpleSchema({
   time: String,
   animalName: {
     type: String,
-    allowedValues: ['Green turtle (Chelonia mydas) Cm', 'Hawksbill turtle (Eretmochelys imbricata) Ei'],
-    defaultValue: 'Green turtle (Chelonia mydas) Cm',
+    allowedValues: ['Green turtle (Chelonia mydas) Cm', 'Hawksbill turtle (Eretmochelys imbricata) Ei', 'Unknown'],
+    defaultValue: 'Unknown',
   },
   name: String,
   phone: String,
@@ -98,7 +98,7 @@ class TurtleSighting extends React.Component {
   // On submit, insert the data.
   submit(data, formRef) {
     const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
-    const owner = Meteor.user().username;
+    const owner = name;
     TurtleReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
       (error) => {
         if (error) {

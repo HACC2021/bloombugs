@@ -103,7 +103,7 @@ class BirdSighting extends React.Component {
   // On submit, insert the data.
   submit(data, formRef) {
     const { date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople } = data;
-    const owner = Meteor.user().username;
+    const owner = name;
     BirdReport.collection.insert({ date, time, animalName, name, phone, location, latitude, longitude, description, markers, numPeople, owner },
       (error) => {
         if (error) {

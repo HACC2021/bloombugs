@@ -25,13 +25,13 @@ class Distress extends React.Component {
               </a>
             </Button>
             <hr/>
-            <Button  size='big' color='green' icon labelPosition='right'>
+            <Button size='big' color='green' icon labelPosition='right'>
               <Icon name='file text'/>
               <Link to="/distressform" style={{color: "white"}}>
               Click for Online Form
               </Link>
             </Button>
-            <div className="ui hidden divider" style={{ paddingBottom: "10%" }}></div>
+            <div className="ui hidden divider" style={{color: "white", paddingBottom: "10%"}}></div>
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -17,10 +17,10 @@ class BirdListReportAdmin extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-        <Menu>
+        <div className="ui fluid vertical menu">
         <Header as="h2" textAlign="center">Seabird Reports</Header>
-        <BirdTable reports={this.props.reports}/>
-        </Menu>
+        <BirdTable reports={this.props.reports} />
+        </div>
     );
   }
 }

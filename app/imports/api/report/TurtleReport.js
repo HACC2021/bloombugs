@@ -22,10 +22,15 @@ class TurtleReportsCollection {
       latitude: Number,
       longitude: Number,
       description: String,
-      numTurtles: {
+      markers: {
         type: String,
-        allowedValues: ['1', '2', '3', '4+'],
-        defaultValue: '1',
+        allowedValues: ['Applied Bleach', 'Tags', 'Satellite', 'Scar', 'Unknown'],
+        defaultValue: 'Unknown',
+      },
+      numPeople: {
+        type: String,
+        allowedValues: ['0 - 5', '5 - 10', ' 10+ '],
+        defaultValue: '0 - 5',
       },
       owner: String,
     }, { tracker: Tracker });

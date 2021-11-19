@@ -17,10 +17,10 @@ class TurtleListReportAdmin extends React.Component {
   // Render the page once subscriptions have been received.
   renderPage() {
     return (
-      <Container>
+        <div className="ui fluid vertical menu">
         <Header as="h2" textAlign="center">Sea Turtle Reports</Header>
         <TurtleTable reports={this.props.reports}/>
-      </Container>
+      </div>
     );
   }
 }
